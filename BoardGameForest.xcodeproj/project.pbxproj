@@ -96,18 +96,18 @@
 			children = (
 				B6074D7E1EE389810082DD8A /* AppDelegate.swift */,
 				B6074D801EE389810082DD8A /* ViewController.swift */,
-				B6074D821EE389810082DD8A /* Main.storyboard */,
-				B6074D881EE389810082DD8A /* Assets.xcassets */,
-				B6074D8A1EE389810082DD8A /* LaunchScreen.storyboard */,
-				B6074D8D1EE389810082DD8A /* Info.plist */,
-				B6074D851EE389810082DD8A /* BoardGameForest.xcdatamodeld */,
-				B6074D931EE38F890082DD8A /* GoogleService-Info.plist */,
 				B617D0A41EE44A4E0047F52A /* Item.swift */,
 				B617D0A61EE452190047F52A /* Order.swift */,
 				B617D0A81EE458360047F52A /* ItemManager.swift */,
+				B617D0AE1EE48E2E0047F52A /* OrderMenuViewController.swift */,
+				B6074D821EE389810082DD8A /* Main.storyboard */,
 				B617D0AA1EE458800047F52A /* Items.plist */,
 				B617D0AC1EE459630047F52A /* menuImage.jpg */,
-				B617D0AE1EE48E2E0047F52A /* OrderMenuViewController.swift */,
+				B6074D931EE38F890082DD8A /* GoogleService-Info.plist */,
+				B6074D8D1EE389810082DD8A /* Info.plist */,
+				B6074D851EE389810082DD8A /* BoardGameForest.xcdatamodeld */,
+				B6074D881EE389810082DD8A /* Assets.xcassets */,
+				B6074D8A1EE389810082DD8A /* LaunchScreen.storyboard */,
 			);
 			path = BoardGameForest;
 			sourceTree = "<group>";

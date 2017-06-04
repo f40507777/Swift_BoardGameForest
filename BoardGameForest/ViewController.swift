@@ -27,9 +27,7 @@ class ViewController: UIViewController {
         
         hackLogin()
         ref = Database.database().reference()
-        print(ItemManager.getItems())
-
-
+        ItemManager.getItems()
     }
     
     @IBAction func clickSend(_ sender: Any) {
