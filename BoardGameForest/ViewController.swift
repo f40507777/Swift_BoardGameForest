@@ -12,7 +12,6 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-
 class ViewController: UIViewController {
     
     var ref: DatabaseReference!
@@ -21,13 +20,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var itemNameTextField: UITextField!
     
+    var items: NSArray?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         hackLogin()
         ref = Database.database().reference()
-        
+        print(ItemManager.getItems())
+
+
     }
     
     @IBAction func clickSend(_ sender: Any) {
