@@ -8,18 +8,77 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
+
+class ViewController: UIViewController {
+    
+    var ref: DatabaseReference!
+    
+    @IBOutlet weak var costTextField: UITextField!
+    
+    @IBOutlet weak var itemNameTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        hackLogin()
+        ref = Database.database().reference()
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func clickSend(_ sender: Any) {
+        createItem()
     }
-
-
+    
+    func createItem() {
+        self.ref.child("orders").child(randomOrderID()).setValue(["item": itemNameTextField.text! ,
+                                                                  "cost": costTextField.text!])
+    }
+    
+    func randomOrderID() -> String {
+        return UUID().uuidString
+    }
+    
+    func createAccount() {
+        Auth.auth().createUser(withEmail: itemNameTextField.text!, password: costTextField.text!) { (user, error) in
+            
+            if error == nil {
+                self.showAlert(title: "success", content: "You have successfully signed up")
+            } else {
+                self.showAlert(title: "Error", content: (error?.localizedDescription)!)
+            }
+            
+            
+        }
+    }
+    
+    func hackLogin (){
+        Auth.auth().signIn(withEmail: "f40507777@gmail.com", password: "123456") { (user, error) in
+            
+            if error == nil {
+                self.showAlert(title: "success", content: "login success!!")
+            } else {
+                self.showAlert(title: "error", content: "login failed!!")
+                
+            }
+        }
+    }
+    
+    func showAlert(title: String, content: String) {
+        let alertController = UIAlertController(title: title,
+                                                message: content,
+                                                preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }
+
 
