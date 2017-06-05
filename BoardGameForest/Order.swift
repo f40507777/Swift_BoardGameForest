@@ -10,7 +10,6 @@ import UIKit
 
 class Order: NSObject {
     var createTime: String?
-    var totalAmount: NSInteger?
+    var totalAmount: Int?
     var items: NSArray?
-    var oid: NSString?
 }

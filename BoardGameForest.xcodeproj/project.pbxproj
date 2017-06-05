@@ -20,6 +20,7 @@
 		B617D0AB1EE458800047F52A /* Items.plist in Resources */ = {isa = PBXBuildFile; fileRef = B617D0AA1EE458800047F52A /* Items.plist */; };
 		B617D0AD1EE459630047F52A /* menuImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B617D0AC1EE459630047F52A /* menuImage.jpg */; };
 		B617D0AF1EE48E2E0047F52A /* OrderMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B617D0AE1EE48E2E0047F52A /* OrderMenuViewController.swift */; };
+		B617D0B11EE4C0AA0047F52A /* BGFDatabaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B617D0B01EE4C0AA0047F52A /* BGFDatabaseAPI.swift */; };
 		CC6692F906C4252BCC876511 /* Pods_BoardGameForest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF62B76687E12393CBF4D1AB /* Pods_BoardGameForest.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		B617D0AA1EE458800047F52A /* Items.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Items.plist; sourceTree = "<group>"; };
 		B617D0AC1EE459630047F52A /* menuImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menuImage.jpg; sourceTree = "<group>"; };
 		B617D0AE1EE48E2E0047F52A /* OrderMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderMenuViewController.swift; sourceTree = "<group>"; };
+		B617D0B01EE4C0AA0047F52A /* BGFDatabaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGFDatabaseAPI.swift; sourceTree = "<group>"; };
 		BF62B76687E12393CBF4D1AB /* Pods_BoardGameForest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoardGameForest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 				B617D0A61EE452190047F52A /* Order.swift */,
 				B617D0A81EE458360047F52A /* ItemManager.swift */,
 				B617D0AE1EE48E2E0047F52A /* OrderMenuViewController.swift */,
+				B617D0B01EE4C0AA0047F52A /* BGFDatabaseAPI.swift */,
 				B6074D821EE389810082DD8A /* Main.storyboard */,
 				B617D0AA1EE458800047F52A /* Items.plist */,
 				B617D0AC1EE459630047F52A /* menuImage.jpg */,
@@ -243,6 +246,7 @@
 				B617D0A71EE452190047F52A /* Order.swift in Sources */,
 				B6074D7F1EE389810082DD8A /* AppDelegate.swift in Sources */,
 				B617D0A91EE458360047F52A /* ItemManager.swift in Sources */,
+				B617D0B11EE4C0AA0047F52A /* BGFDatabaseAPI.swift in Sources */,
 				B6074D871EE389810082DD8A /* BoardGameForest.xcdatamodeld in Sources */,
 				B617D0AF1EE48E2E0047F52A /* OrderMenuViewController.swift in Sources */,
 			);

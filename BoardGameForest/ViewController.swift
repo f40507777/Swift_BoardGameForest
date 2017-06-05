@@ -26,8 +26,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         hackLogin()
-        ref = Database.database().reference()
-        ItemManager.getItems()
+        //ref = Database.database().reference()
+        //ItemManager.getItems()
     }
     
     @IBAction func clickSend(_ sender: Any) {
@@ -35,7 +35,8 @@ class ViewController: UIViewController {
     }
     
     func createItem() {
-        self.ref.child("orders").child(randomOrderID()).setValue(["item": itemNameTextField.text! ,
+        
+        self.ref.child("orders").childByAutoId().setValue(["item": itemNameTextField.text! ,
                                                                   "cost": costTextField.text!])
     }
     
