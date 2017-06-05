@@ -12,19 +12,34 @@ class Order: NSObject {
     var createTime: String = ""
     var totalAmount: Int = 0
     var itemsName: NSArray = []
-    
+    var isComboDiscount = true
+    private var orderItems: [Item] = []
+
     init(items: [Item]) {
         super.init()
         
+        orderItems = items
         itemsName = (items as NSArray).value(forKeyPath: "name") as! NSArray
-        totalAmount = calculationTotalByItems(items: items)
+        totalAmount = calculationTotalAmount() - comboDiscount()
     }
     
-    func calculationTotalByItems(items: [Item]) -> Int {
-        for item:Item in items {
+    private func calculationTotalAmount() -> Int {
+        for item:Item in orderItems {
             totalAmount += item.price
         }
         
         return totalAmount
+    }
+    
+    private func comboDiscount() -> Int {
+        if isComboDiscount {
+            let dessertItemPredicate = NSPredicate(format: "type = %d", ItemType.Dessert.rawValue)
+            let dessertItems = (orderItems as NSArray).filtered(using: dessertItemPredicate)
+            let minimum  = min(dessertItems.count, orderItems.count - dessertItems.count)
+            
+            return minimum * 20
+        }
+        
+        return 0
     }
 }

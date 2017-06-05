@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum ItemType: NSInteger {
+enum ItemType: Int {
     case Beverage
     case Dessert
     case MainCourse

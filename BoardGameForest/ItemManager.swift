@@ -59,9 +59,9 @@ class ItemManager: NSObject {
             let dynomicItemArray = NSMutableArray()
             for itemDic in typeArray as! [[String: AnyObject]] {
                 let item = Item()
-                item.name = (itemDic["name"] as! String)
-                item.price = (itemDic["price"] as! Int)
-                item.type = (itemDic["type"] as! Int)
+                item.name = itemDic["name"] as! String
+                item.price = itemDic["price"] as! Int
+                item.type = itemDic["type"] as! Int
                 dynomicItemArray.add(item)
             }
             dynomicTypeArray.add(dynomicItemArray)
