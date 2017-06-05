@@ -17,8 +17,8 @@ class BGFDatabaseAPI: NSObject {
 
     static func addOrder(order: Order) {
         self.databaseReference.child("orders").childByAutoId().setValue(["createTime": convertDateFormater(),
-                                                                         "totalAmount": order.totalAmount!,
-                                                                         "items": order.items!])
+                                                                         "totalAmount": order.totalAmount,
+                                                                         "items": order.itemsName])
     }
     
     static func convertDateFormater() -> String {

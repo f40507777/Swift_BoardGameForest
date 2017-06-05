@@ -10,16 +10,12 @@ import UIKit
 
 class OrderMenuViewController: UITableViewController {
 
-    var items: [[Item]] = []
-    
-    var orderArray: NSMutableArray = []
+    var orderArray: [Item] = []
     
     var allItems: [[Item]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        orderArray = NSMutableArray()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Send", style: .plain, target: self, action: #selector(sendOrder))
         allItems = ItemManager.getItems() as! [[Item]]
     }
@@ -32,7 +28,7 @@ class OrderMenuViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return (allItems[section] as NSArray).count
+        return allItems[section].count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,8 +36,7 @@ class OrderMenuViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ??
             UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: identifier)
         
-        let item:Item = ((allItems[indexPath.section] as NSArray)[indexPath.row] as! Item)
-        
+        let item = allItems[indexPath.section][indexPath.row]
         cell.textLabel!.text = item.name
         
         return cell
@@ -54,17 +49,12 @@ class OrderMenuViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let item:Item = ((allItems[indexPath.section] as NSArray)[indexPath.row] as! Item)
-        orderArray.add(item)
+        let item = allItems[indexPath.section][indexPath.row]
+        orderArray.append(item)
     }
     
     func sendOrder() {
-        let order = Order()
-        order.totalAmount = 0
-        order.items = orderArray.value(forKeyPath: "name") as! NSArray?
-        for item in orderArray {
-            order.totalAmount = order.totalAmount! + (item as! Item).price!
-        }        
+        let order = Order(items: orderArray)
         BGFDatabaseAPI.addOrder(order: order)
     }
     

@@ -15,8 +15,8 @@ enum ItemType: NSInteger {
 }
 
 class Item: NSObject {
-    var name: String?
-    var price: NSInteger?
-    var serialNumber: String?
-    var type: NSInteger?
+    var name: String = ""
+    var price: Int = 0
+    var serialNumber: String = ""
+    var type: Int = 0
 }
