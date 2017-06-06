@@ -11,15 +11,19 @@ import UIKit
 class Order: NSObject {
     var createTime: String = ""
     var totalAmount: Int = 0
-    var itemsName: NSArray = []
+    var itemsName: [String] = []
     var isComboDiscount = true
     private var orderItems: [Item] = []
 
+    override init() {
+        super.init()
+    }
+    
     init(items: [Item]) {
         super.init()
         
         orderItems = items
-        itemsName = (items as NSArray).value(forKeyPath: "name") as! NSArray
+        itemsName = ((items as NSArray).value(forKeyPath: "name") as! NSArray) as! [String]
         totalAmount = calculationTotalAmount() - comboDiscount()
     }
     

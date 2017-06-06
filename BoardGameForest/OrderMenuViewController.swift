@@ -10,12 +10,15 @@ import UIKit
 
 class OrderMenuViewController: UITableViewController {
 
+    lazy var databaseAPI = BGFDatabaseAPI()
+    
     var orderArray: [Item] = []
     
     var allItems: [[Item]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Send", style: .plain, target: self, action: #selector(sendOrder))
         allItems = ItemManager.getItems() as! [[Item]]
     }
@@ -55,7 +58,7 @@ class OrderMenuViewController: UITableViewController {
     
     func sendOrder() {
         let order = Order(items: orderArray)
-        BGFDatabaseAPI.addOrder(order: order)
+        databaseAPI.addOrder(order: order)
     }
     
 }
