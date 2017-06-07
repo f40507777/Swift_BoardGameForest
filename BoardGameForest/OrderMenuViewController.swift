@@ -23,12 +23,12 @@ class OrderMenuViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
 
-        return 1
+        return meals.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return meals.count
+        return meals[section].count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,15 +36,14 @@ class OrderMenuViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ??
             UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: identifier)
         
-        let item = meals[indexPath.row]
-        cell.textLabel!.text = item.name
+        let meal = meals[indexPath.section][indexPath.row]
+        cell.textLabel!.text = meal.name
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-       return "123"
-//        return ItemManager.getTypeNameArray()[section] as? String
+       return "Title"
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
