@@ -16,14 +16,18 @@ class OrderHistoryController: UITableViewController,DatabaseAPIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initDatabase()
+    }
+    
+    func initDatabase() {
         databaseAPI.delegate = self
-        databaseAPI.getAllOrdersArray { (databaseOrders: Array<Order>?, error: Error?) in
+        databaseAPI.getAllOrdersArray { databaseOrders, error in
             if (error == nil) {
                 self.orders = databaseOrders!
                 self.tableView.reloadData()
             }
         }
-
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

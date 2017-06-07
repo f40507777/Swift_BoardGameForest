@@ -9,7 +9,7 @@
 import UIKit
 
 class Order: NSObject {
-    var createTime: String = ""
+    var createTime: String?
     var totalAmount: Int = 0
     var itemsName: [String] = []
     var isComboDiscount = true
@@ -23,12 +23,12 @@ class Order: NSObject {
         super.init()
         
         orderMeals = meals
-        itemsName = meals.map({$0.name})
+        itemsName = meals.map({$0.name!})
         totalAmount = calculationTotalAmount() - comboDiscount()
     }
 
     private func calculationTotalAmount() -> Int {
-        return orderMeals.map({$0.price}).reduce(0){$0 + $1}
+        return orderMeals.map({$0.price}).reduce(0){($0 + $1)}
     }
 
     private func comboDiscount() -> Int {

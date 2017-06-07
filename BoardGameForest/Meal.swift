@@ -15,8 +15,7 @@ enum MealType: Int {
 }
 
 class Meal: NSObject {
-    var name: String = ""
+    var name: String?
     var price: Int = 0
-    var serialNumber: String = ""
-    var type: Int = 0
+    var type: Int?
 }
