@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class BGFTabBarController: UITabBarController {
+class TabBarController: UITabBarController {
 
     lazy var databaseAPI = DatabaseAPI()
 

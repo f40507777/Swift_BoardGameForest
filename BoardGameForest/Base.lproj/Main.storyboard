@@ -62,10 +62,10 @@
         <!--Tab Bar Controller-->
         <scene sceneID="irO-S0-zwF">
             <objects>
-                <tabBarController id="LBf-YT-ame" customClass="BGFTabBarController" customModule="BoardGameForest" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="LBf-YT-ame" customClass="TabBarController" customModule="BoardGameForest" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ggR-6f-JsT"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="mAI-MU-yjH" customClass="BGFTabBar" customModule="BoardGameForest" customModuleProvider="target">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="mAI-MU-yjH" customClass="TabBar" customModule="BoardGameForest" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

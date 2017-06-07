@@ -39,9 +39,9 @@
 		B659C9B81EE68045008A425E /* ic_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = B659C9A61EE68045008A425E /* ic_settings.png */; };
 		B659C9B91EE68045008A425E /* ic_settings_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B659C9A71EE68045008A425E /* ic_settings_2x.png */; };
 		B659C9BA1EE68045008A425E /* ic_settings_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B659C9A81EE68045008A425E /* ic_settings_3x.png */; };
-		B659C9BE1EE6864A008A425E /* BGFTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B659C9BD1EE6864A008A425E /* BGFTabBar.swift */; };
+		B659C9BE1EE6864A008A425E /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B659C9BD1EE6864A008A425E /* TabBar.swift */; };
 		B659C9C21EE6879F008A425E /* OrderHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B659C9C11EE6879F008A425E /* OrderHistoryController.swift */; };
-		B659C9C41EE6884E008A425E /* BGFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B659C9C31EE6884E008A425E /* BGFTabBarController.swift */; };
+		B659C9C41EE6884E008A425E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B659C9C31EE6884E008A425E /* TabBarController.swift */; };
 		CC6692F906C4252BCC876511 /* Pods_BoardGameForest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF62B76687E12393CBF4D1AB /* Pods_BoardGameForest.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,9 +82,9 @@
 		B659C9A61EE68045008A425E /* ic_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_settings.png; sourceTree = "<group>"; };
 		B659C9A71EE68045008A425E /* ic_settings_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_settings_2x.png; sourceTree = "<group>"; };
 		B659C9A81EE68045008A425E /* ic_settings_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_settings_3x.png; sourceTree = "<group>"; };
-		B659C9BD1EE6864A008A425E /* BGFTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGFTabBar.swift; sourceTree = "<group>"; };
+		B659C9BD1EE6864A008A425E /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		B659C9C11EE6879F008A425E /* OrderHistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderHistoryController.swift; sourceTree = "<group>"; };
-		B659C9C31EE6884E008A425E /* BGFTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGFTabBarController.swift; sourceTree = "<group>"; };
+		B659C9C31EE6884E008A425E /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BF62B76687E12393CBF4D1AB /* Pods_BoardGameForest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoardGameForest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -147,8 +147,8 @@
 				B617D0AE1EE48E2E0047F52A /* OrderMenuViewController.swift */,
 				B659C9C11EE6879F008A425E /* OrderHistoryController.swift */,
 				B617D0B01EE4C0AA0047F52A /* DatabaseAPI.swift */,
-				B659C9BD1EE6864A008A425E /* BGFTabBar.swift */,
-				B659C9C31EE6884E008A425E /* BGFTabBarController.swift */,
+				B659C9BD1EE6864A008A425E /* TabBar.swift */,
+				B659C9C31EE6884E008A425E /* TabBarController.swift */,
 				B6074D821EE389810082DD8A /* Main.storyboard */,
 				B617D0AA1EE458800047F52A /* Menu.plist */,
 				B617D0AC1EE459630047F52A /* menuImage.jpg */,
@@ -336,9 +336,9 @@
 				B617D0A71EE452190047F52A /* Order.swift in Sources */,
 				B6074D7F1EE389810082DD8A /* AppDelegate.swift in Sources */,
 				B617D0A91EE458360047F52A /* MenuParser.swift in Sources */,
-				B659C9C41EE6884E008A425E /* BGFTabBarController.swift in Sources */,
+				B659C9C41EE6884E008A425E /* TabBarController.swift in Sources */,
 				B617D0B11EE4C0AA0047F52A /* DatabaseAPI.swift in Sources */,
-				B659C9BE1EE6864A008A425E /* BGFTabBar.swift in Sources */,
+				B659C9BE1EE6864A008A425E /* TabBar.swift in Sources */,
 				B6074D871EE389810082DD8A /* BoardGameForest.xcdatamodeld in Sources */,
 				B617D0AF1EE48E2E0047F52A /* OrderMenuViewController.swift in Sources */,
 				B659C9C21EE6879F008A425E /* OrderHistoryController.swift in Sources */,

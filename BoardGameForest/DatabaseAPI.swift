@@ -41,7 +41,6 @@ class DatabaseAPI: NSObject {
     }
     
     func getAllOrdersArray(callback: @escaping (Array<Order>?, Error?) -> Void) {
-        
         self.databaseReference.child("orders").observeSingleEvent(of: .value, with: { (snapshot) in
             callback(self.convertServerDataToItemArray(snapshot: snapshot), nil)
         }) { (error) in
@@ -49,9 +48,6 @@ class DatabaseAPI: NSObject {
         }
 
     }
-    
-
-
     
     func hackLogin (){
         Auth.auth().signIn(withEmail: "f40507777@gmail.com", password: "123456") { (user, error) in
