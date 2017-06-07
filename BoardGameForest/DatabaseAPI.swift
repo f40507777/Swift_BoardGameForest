@@ -12,10 +12,10 @@ import Firebase
 import FirebaseDatabase
 
 protocol DatabaseAPIDelegate: class {
-    func dataChangeEvent(callback: Array<Order>)
+    func dataChangeEvent(databaseOrders: Array<Order>)
 }
 
-class BGFDatabaseAPI: NSObject {
+class DatabaseAPI: NSObject {
 
     lazy var databaseReference = Database.database().reference()
 
@@ -36,53 +36,22 @@ class BGFDatabaseAPI: NSObject {
     
     func addDBObserve() {
         self.databaseReference.child("orders").observe(DataEventType.value, with: { (snapshot) in
-            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
-//            self.delegate?.dataChangeEvent()
+            self.delegate?.dataChangeEvent(databaseOrders: self.convertServerDataToItemArray(snapshot: snapshot))
         })
     }
     
     func getAllOrdersArray(callback: @escaping (Array<Order>?, Error?) -> Void) {
         
-        var orderArray:Array<Order> = Array()
         self.databaseReference.child("orders").observeSingleEvent(of: .value, with: { (snapshot) in
-            let ordersDic = snapshot.value as? NSDictionary
-            let orders = ordersDic!.allValues as NSArray
-            for order in orders {
-                let newOrder = Order()
-                newOrder.createTime = (order as! NSDictionary)["createTime"] as! String
-                newOrder.totalAmount = (order as! NSDictionary)["totalAmount"] as! Int
-                newOrder.itemsName = ((order as! NSDictionary)["items"] as! NSArray) as! [String]
-                orderArray.append(newOrder)
-            }
-            callback(orderArray, nil)
+            callback(self.convertServerDataToItemArray(snapshot: snapshot), nil)
         }) { (error) in
             callback(nil, error)
         }
 
     }
     
-//    func readOrders(onCompletion: ServiceResponse) -> Array<Order> {
-//        var orderArray:Array<Order> = Array()
-//
-//        self.databaseReference.child("orders").observeSingleEvent(of: .value, with: { (snapshot) in
-//
-//            let ordersDic = snapshot.value as? NSDictionary
-//            let orders = ordersDic!.allValues as NSArray
-//            
-//            for order in orders {
-//                let newOrder = Order()
-//                newOrder.createTime = (order as! NSDictionary)["createTime"] as! String
-//                newOrder.totalAmount = (order as! NSDictionary)["totalAmount"] as! Int
-//                newOrder.itemsName = ((order as! NSDictionary)["items"] as! NSArray) as! [String]
-//                orderArray.append(newOrder)
-//            }
-//            
-//        }) { (error) in
-//        }
-//        
-//        
-//        return orderArray
-//    }
+
+
     
     func hackLogin (){
         Auth.auth().signIn(withEmail: "f40507777@gmail.com", password: "123456") { (user, error) in
@@ -94,6 +63,21 @@ class BGFDatabaseAPI: NSObject {
         }
     }
     
+    func convertServerDataToItemArray(snapshot: DataSnapshot) -> Array<Order> {
+        var orderArray:Array<Order> = Array()
+        let ordersDictionary = snapshot.value as? NSDictionary
+        let ordersValueArray = ordersDictionary!.allValues as! Array<NSDictionary>
+        for order in ordersValueArray {
+            let newOrder = Order()
+            newOrder.createTime = order["createTime"] as! String
+            newOrder.totalAmount = order["totalAmount"] as! Int
+            newOrder.itemsName = (order["items"] as! NSArray) as! [String]
+            orderArray.append(newOrder)
+        }
+        
+        return orderArray
+    }
+    
     func convertDateFormater() -> String {
         let date = Date()
         let inFormatter = DateFormatter()
@@ -102,5 +86,6 @@ class BGFDatabaseAPI: NSObject {
         
         return inFormatter.string(from: date)
     }
+    
     
 }

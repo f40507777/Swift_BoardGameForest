@@ -8,18 +8,18 @@
 
 import UIKit
 
-class OrderHistoryController: UITableViewController {
+class OrderHistoryController: UITableViewController,DatabaseAPIDelegate {
 
-    lazy var databaseAPI = BGFDatabaseAPI()
+    lazy var databaseAPI = DatabaseAPI()
 
     var orders: Array<Order> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        databaseAPI.getAllOrdersArray { (ordersArray: Array<Order>?, error: Error?) in
+        databaseAPI.delegate = self
+        databaseAPI.getAllOrdersArray { (databaseOrders: Array<Order>?, error: Error?) in
             if (error == nil) {
-                self.orders = ordersArray!
+                self.orders = databaseOrders!
                 self.tableView.reloadData()
             }
         }
@@ -47,5 +47,10 @@ class OrderHistoryController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         return orders[section].createTime
+    }
+    
+    func dataChangeEvent(databaseOrders: Array<Order>) {
+        self.orders = databaseOrders
+        self.tableView.reloadData()
     }
 }

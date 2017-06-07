@@ -13,11 +13,11 @@ import FirebaseAuth
 
 class BGFTabBarController: UITabBarController {
 
-//    var ref: DatabaseReference!
+    lazy var databaseAPI = DatabaseAPI()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        BGFDatabaseAPI.hackLogin()
+        databaseAPI.hackLogin()
     }
 }

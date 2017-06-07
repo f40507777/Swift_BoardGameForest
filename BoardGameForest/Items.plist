@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>飲品</key>
+<array>
 	<array>
 		<dict>
 			<key>name</key>
@@ -45,7 +44,6 @@
 			<integer>0</integer>
 		</dict>
 	</array>
-	<key>點心</key>
 	<array>
 		<dict>
 			<key>name</key>
@@ -80,7 +78,6 @@
 			<integer>1</integer>
 		</dict>
 	</array>
-	<key>主餐</key>
 	<array>
 		<dict>
 			<key>name</key>
@@ -115,5 +112,5 @@
 			<integer>2</integer>
 		</dict>
 	</array>
-</dict>
+</array>
 </plist>
