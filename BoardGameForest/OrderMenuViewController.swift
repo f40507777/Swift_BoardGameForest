@@ -13,6 +13,8 @@ class OrderMenuViewController: UITableViewController {
     lazy var databaseAPI = DatabaseAPI()
     
     lazy var meals = MenuParser().mealArray
+    
+    var orderMealsArray: [Meal] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,14 +49,14 @@ class OrderMenuViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        let item = allItems[indexPath.section][indexPath.row]
-//        orderArray.append(item)
+        tableView.deselectRow(at: indexPath, animated: true)
+        let meal = meals[indexPath.section][indexPath.row]
+        orderMealsArray.append(meal)
     }
     
     func sendOrder() {
-//        let order = Order(items: orderArray)
-//        databaseAPI.addOrder(order: order)
+        let order = Order(meals: orderMealsArray)
+        databaseAPI.addOrder(order: order)
     }
     
 }
