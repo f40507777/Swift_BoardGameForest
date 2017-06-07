@@ -16,9 +16,9 @@ class MenuParser: NSObject {
                 var mealTypesDynomicArray: [Meal] = []
                 for mealDictionary in mealTypes {
                     let meal = Meal()
-                    meal.name = mealDictionary["name"] as! String
+                    meal.name = mealDictionary["name"] as? String
                     meal.price = mealDictionary["price"] as! Int
-                    meal.type = mealDictionary["type"] as! Int
+                    meal.type = mealDictionary["type"] as? Int
                     mealTypesDynomicArray.append(meal)
                 }
                 mealDynomicArray.append(mealTypesDynomicArray)
