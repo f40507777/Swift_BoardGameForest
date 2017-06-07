@@ -8,13 +8,13 @@
 
 import UIKit
 
-enum ItemType: Int {
+enum MealType: Int {
     case Beverage
     case Dessert
     case MainCourse
 }
 
-class Item: NSObject {
+class Meal: NSObject {
     var name: String = ""
     var price: Int = 0
     var serialNumber: String = ""
