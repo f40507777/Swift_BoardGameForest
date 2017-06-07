@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B6074D7F1EE389810082DD8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6074D7E1EE389810082DD8A /* AppDelegate.swift */; };
-		B6074D811EE389810082DD8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6074D801EE389810082DD8A /* ViewController.swift */; };
 		B6074D841EE389810082DD8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6074D821EE389810082DD8A /* Main.storyboard */; };
 		B6074D871EE389810082DD8A /* BoardGameForest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6074D851EE389810082DD8A /* BoardGameForest.xcdatamodeld */; };
 		B6074D891EE389810082DD8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6074D881EE389810082DD8A /* Assets.xcassets */; };
@@ -50,7 +49,6 @@
 		A0607A1A76666B8E1527578E /* Pods-BoardGameForest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoardGameForest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoardGameForest/Pods-BoardGameForest.debug.xcconfig"; sourceTree = "<group>"; };
 		B6074D7B1EE389810082DD8A /* BoardGameForest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoardGameForest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6074D7E1EE389810082DD8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B6074D801EE389810082DD8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B6074D831EE389810082DD8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6074D861EE389810082DD8A /* BoardGameForest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BoardGameForest.xcdatamodel; sourceTree = "<group>"; };
 		B6074D881EE389810082DD8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				B6074D7E1EE389810082DD8A /* AppDelegate.swift */,
-				B6074D801EE389810082DD8A /* ViewController.swift */,
 				B617D0A41EE44A4E0047F52A /* Meal.swift */,
 				B617D0A61EE452190047F52A /* Order.swift */,
 				B617D0A81EE458360047F52A /* MenuParser.swift */,
@@ -332,7 +329,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B617D0A51EE44A4E0047F52A /* Meal.swift in Sources */,
-				B6074D811EE389810082DD8A /* ViewController.swift in Sources */,
 				B617D0A71EE452190047F52A /* Order.swift in Sources */,
 				B6074D7F1EE389810082DD8A /* AppDelegate.swift in Sources */,
 				B617D0A91EE458360047F52A /* MenuParser.swift in Sources */,
