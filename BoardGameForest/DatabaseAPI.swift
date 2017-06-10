@@ -17,7 +17,7 @@ protocol DatabaseAPIDelegate: class {
 
 class DatabaseAPI: NSObject {
 
-    lazy var databaseReference = Database.database().reference()
+    private lazy var databaseOrderPath = Database.database().reference().child("orders")
 
     weak var delegate: DatabaseAPIDelegate?
     
@@ -29,24 +29,27 @@ class DatabaseAPI: NSObject {
     
     
     func addOrder(order: Order) {
-        self.databaseReference.child("orders").childByAutoId().setValue(["createTime": convertDateFormater(),
+        databaseOrderPath.childByAutoId().setValue(["createTime": convertDateFormater(),
                                                                          "totalAmount": order.totalAmount,
-                                                                         "items": order.itemsName])
+                                                                         "items": order.mealName])
     }
     
     func addDBObserve() {
-        self.databaseReference.child("orders").observe(DataEventType.value, with: { (snapshot) in
+        databaseOrderPath.observe(DataEventType.value, with: { (snapshot) in
             self.delegate?.dataChangeEvent(databaseOrders: self.convertServerDataToItemArray(snapshot: snapshot))
         })
     }
     
     func getAllOrdersArray(callback: @escaping (Array<Order>?, Error?) -> Void) {
-        self.databaseReference.child("orders").observeSingleEvent(of: .value, with: { (snapshot) in
+        databaseOrderPath.observeSingleEvent(of: .value, with: { (snapshot) in
             callback(self.convertServerDataToItemArray(snapshot: snapshot), nil)
         }) { (error) in
             callback(nil, error)
         }
-
+    }
+    
+    func clearAllData() {
+        databaseOrderPath.setValue(nil)
     }
     
     func hackLogin (){
@@ -62,15 +65,16 @@ class DatabaseAPI: NSObject {
     func convertServerDataToItemArray(snapshot: DataSnapshot) -> Array<Order> {
         var orderArray:Array<Order> = Array()
         let ordersDictionary = snapshot.value as? NSDictionary
-        let ordersValueArray = ordersDictionary!.allValues as! Array<NSDictionary>
-        for order in ordersValueArray {
-            let newOrder = Order()
-            newOrder.createTime = order["createTime"] as! String
-            newOrder.totalAmount = order["totalAmount"] as! Int
-            newOrder.itemsName = (order["items"] as! NSArray) as! [String]
-            orderArray.append(newOrder)
+        if let ordersValueArray = ordersDictionary?.allValues as? Array<NSDictionary> {
+            for order in ordersValueArray {
+                let newOrder = Order()
+                newOrder.createTime = order["createTime"] as? String
+                newOrder.totalAmount = order["totalAmount"] as! Int
+                newOrder.mealName = (order["items"] as! NSArray) as! [String]
+                orderArray.append(newOrder)
+            }
         }
-        
+
         return orderArray
     }
     

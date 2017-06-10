@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LBf-YT-ame">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LBf-YT-ame">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -73,6 +73,7 @@
                     <connections>
                         <segue destination="XxY-3V-KxI" kind="relationship" relationship="viewControllers" id="trW-hg-iA4"/>
                         <segue destination="kyc-2i-qhk" kind="relationship" relationship="viewControllers" id="l0L-wk-8gy"/>
+                        <segue destination="gES-DN-nvp" kind="relationship" relationship="viewControllers" id="xXo-Jn-gh7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37B-52-wWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -128,9 +129,60 @@
             </objects>
             <point key="canvasLocation" x="1494" y="1451"/>
         </scene>
+        <!--Root View Controller-->
+        <scene sceneID="XgP-Vx-v1f">
+            <objects>
+                <tableViewController id="p8D-P5-cds" customClass="SettingController" customModule="BoardGameForest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="yjA-kX-X6e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6FF-yz-FFx">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6FF-yz-FFx" id="Jaf-kL-LeV">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="p8D-P5-cds" id="ew0-ff-wsd"/>
+                            <outlet property="delegate" destination="p8D-P5-cds" id="uzL-5d-xN7"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="" image="ic_settings.png" id="poc-x3-zcv">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="3p9-Be-gW4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s8I-xg-qaW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1494" y="2242"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="wBf-87-4Aa">
+            <objects>
+                <navigationController id="gES-DN-nvp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Pgr-2c-F61"/>
+                    <navigationItem key="navigationItem" id="Bun-Pv-IQw"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e4V-2d-Isn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="p8D-P5-cds" kind="relationship" relationship="rootViewController" id="tw1-JF-5Dz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QF2-Ke-2kF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="2242"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_assignment.png" width="24" height="24"/>
         <image name="ic_restaurant.png" width="24" height="24"/>
+        <image name="ic_settings.png" width="24" height="24"/>
     </resources>
 </document>

@@ -41,6 +41,7 @@
 		B659C9BE1EE6864A008A425E /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B659C9BD1EE6864A008A425E /* TabBar.swift */; };
 		B659C9C21EE6879F008A425E /* OrderHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B659C9C11EE6879F008A425E /* OrderHistoryController.swift */; };
 		B659C9C41EE6884E008A425E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B659C9C31EE6884E008A425E /* TabBarController.swift */; };
+		B67A35331EEC403000475441 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A35321EEC403000475441 /* SettingController.swift */; };
 		CC6692F906C4252BCC876511 /* Pods_BoardGameForest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF62B76687E12393CBF4D1AB /* Pods_BoardGameForest.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		B659C9BD1EE6864A008A425E /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		B659C9C11EE6879F008A425E /* OrderHistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderHistoryController.swift; sourceTree = "<group>"; };
 		B659C9C31EE6884E008A425E /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		B67A35321EEC403000475441 /* SettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		BF62B76687E12393CBF4D1AB /* Pods_BoardGameForest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoardGameForest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 				B617D0B01EE4C0AA0047F52A /* DatabaseAPI.swift */,
 				B659C9BD1EE6864A008A425E /* TabBar.swift */,
 				B659C9C31EE6884E008A425E /* TabBarController.swift */,
+				B67A35321EEC403000475441 /* SettingController.swift */,
 				B6074D821EE389810082DD8A /* Main.storyboard */,
 				B617D0AA1EE458800047F52A /* Menu.plist */,
 				B617D0AC1EE459630047F52A /* menuImage.jpg */,
@@ -336,6 +339,7 @@
 				B617D0B11EE4C0AA0047F52A /* DatabaseAPI.swift in Sources */,
 				B659C9BE1EE6864A008A425E /* TabBar.swift in Sources */,
 				B6074D871EE389810082DD8A /* BoardGameForest.xcdatamodeld in Sources */,
+				B67A35331EEC403000475441 /* SettingController.swift in Sources */,
 				B617D0AF1EE48E2E0047F52A /* OrderMenuViewController.swift in Sources */,
 				B659C9C21EE6879F008A425E /* OrderHistoryController.swift in Sources */,
 			);

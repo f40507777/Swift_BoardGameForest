@@ -11,7 +11,7 @@ import UIKit
 class Order: NSObject {
     var createTime: String?
     var totalAmount: Int = 0
-    var itemsName: [String] = []
+    var mealName: [String] = []
     var isComboDiscount = true
     private var orderMeals: [Meal] = []
 
@@ -23,7 +23,7 @@ class Order: NSObject {
         super.init()
         
         orderMeals = meals
-        itemsName = meals.map({$0.name!})
+        mealName = meals.map({$0.name!})
         totalAmount = calculationTotalAmount() - comboDiscount()
     }
 
