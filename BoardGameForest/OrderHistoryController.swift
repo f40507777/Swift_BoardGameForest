@@ -35,7 +35,7 @@ class OrderHistoryController: UITableViewController,DatabaseAPIDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orders[section].mealName.count
+        return orders[section].mealsList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,7 +43,7 @@ class OrderHistoryController: UITableViewController,DatabaseAPIDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ??
             UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: identifier)
         
-        cell.textLabel?.text = orders[indexPath.section].mealName[indexPath.row]
+        cell.textLabel?.text = orders[indexPath.section].mealsList[indexPath.row].keys.first
         
         return cell
     }

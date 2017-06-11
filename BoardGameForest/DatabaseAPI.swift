@@ -29,9 +29,7 @@ class DatabaseAPI: NSObject {
     
     
     func addOrder(order: Order) {
-        databaseOrderPath.childByAutoId().setValue(["createTime": convertDateFormater(),
-                                                                         "totalAmount": order.totalAmount,
-                                                                         "items": order.mealName])
+        databaseOrderPath.childByAutoId().setValue(order.getDictionary())
     }
     
     func addDBObserve() {
@@ -65,27 +63,13 @@ class DatabaseAPI: NSObject {
     func convertServerDataToItemArray(snapshot: DataSnapshot) -> Array<Order> {
         var orderArray:Array<Order> = Array()
         let ordersDictionary = snapshot.value as? NSDictionary
-        if let ordersValueArray = ordersDictionary?.allValues as? Array<NSDictionary> {
+        if let ordersValueArray = ordersDictionary?.allValues as? Array<Dictionary<String, Any>> {
             for order in ordersValueArray {
-                let newOrder = Order()
-                newOrder.createTime = order["createTime"] as? String
-                newOrder.totalAmount = order["totalAmount"] as! Int
-                newOrder.mealName = (order["items"] as! NSArray) as! [String]
+                let newOrder = Order(orderDic: order)
                 orderArray.append(newOrder)
             }
         }
 
         return orderArray
-    }
-    
-    func convertDateFormater() -> String {
-        let date = Date()
-        let inFormatter = DateFormatter()
-        inFormatter.locale = NSLocale(localeIdentifier: "zh_TW") as Locale!
-        inFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        
-        return inFormatter.string(from: date)
-    }
-    
-    
+    }  
 }
