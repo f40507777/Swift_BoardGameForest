@@ -20,6 +20,8 @@
 		B617D0AD1EE459630047F52A /* menuImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B617D0AC1EE459630047F52A /* menuImage.jpg */; };
 		B617D0AF1EE48E2E0047F52A /* OrderMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B617D0AE1EE48E2E0047F52A /* OrderMenuViewController.swift */; };
 		B617D0B11EE4C0AA0047F52A /* DatabaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B617D0B01EE4C0AA0047F52A /* DatabaseAPI.swift */; };
+		B64162CE1EEE001A0089908B /* OrderTableNumberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64162CD1EEE001A0089908B /* OrderTableNumberController.swift */; };
+		B64162D01EEE04E90089908B /* OrderTableNumberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64162CF1EEE04E90089908B /* OrderTableNumberCollectionViewCell.swift */; };
 		B659C9A91EE68045008A425E /* ic_account_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = B659C9971EE68045008A425E /* ic_account_circle.png */; };
 		B659C9AA1EE68045008A425E /* ic_account_circle_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B659C9981EE68045008A425E /* ic_account_circle_2x.png */; };
 		B659C9AB1EE68045008A425E /* ic_account_circle_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B659C9991EE68045008A425E /* ic_account_circle_3x.png */; };
@@ -63,6 +65,8 @@
 		B617D0AC1EE459630047F52A /* menuImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menuImage.jpg; sourceTree = "<group>"; };
 		B617D0AE1EE48E2E0047F52A /* OrderMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderMenuViewController.swift; sourceTree = "<group>"; };
 		B617D0B01EE4C0AA0047F52A /* DatabaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAPI.swift; sourceTree = "<group>"; };
+		B64162CD1EEE001A0089908B /* OrderTableNumberController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableNumberController.swift; sourceTree = "<group>"; };
+		B64162CF1EEE04E90089908B /* OrderTableNumberCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableNumberCollectionViewCell.swift; sourceTree = "<group>"; };
 		B659C9971EE68045008A425E /* ic_account_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_account_circle.png; sourceTree = "<group>"; };
 		B659C9981EE68045008A425E /* ic_account_circle_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_account_circle_2x.png; sourceTree = "<group>"; };
 		B659C9991EE68045008A425E /* ic_account_circle_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_account_circle_3x.png; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				B617D0A41EE44A4E0047F52A /* Meal.swift */,
 				B617D0A61EE452190047F52A /* Order.swift */,
 				B617D0A81EE458360047F52A /* MenuParser.swift */,
+				B64162CD1EEE001A0089908B /* OrderTableNumberController.swift */,
+				B64162CF1EEE04E90089908B /* OrderTableNumberCollectionViewCell.swift */,
 				B617D0AE1EE48E2E0047F52A /* OrderMenuViewController.swift */,
 				B659C9C11EE6879F008A425E /* OrderHistoryController.swift */,
 				B617D0B01EE4C0AA0047F52A /* DatabaseAPI.swift */,
@@ -331,10 +337,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B64162CE1EEE001A0089908B /* OrderTableNumberController.swift in Sources */,
 				B617D0A51EE44A4E0047F52A /* Meal.swift in Sources */,
 				B617D0A71EE452190047F52A /* Order.swift in Sources */,
 				B6074D7F1EE389810082DD8A /* AppDelegate.swift in Sources */,
 				B617D0A91EE458360047F52A /* MenuParser.swift in Sources */,
+				B64162D01EEE04E90089908B /* OrderTableNumberCollectionViewCell.swift in Sources */,
 				B659C9C41EE6884E008A425E /* TabBarController.swift in Sources */,
 				B617D0B11EE4C0AA0047F52A /* DatabaseAPI.swift in Sources */,
 				B659C9BE1EE6864A008A425E /* TabBar.swift in Sources */,

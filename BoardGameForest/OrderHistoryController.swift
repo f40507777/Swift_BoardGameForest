@@ -12,7 +12,9 @@ class OrderHistoryController: UITableViewController,DatabaseAPIDelegate {
 
     lazy var databaseAPI = DatabaseAPI()
 
-    var orders: Array<Order> = []
+    var ordersDictionary: Dictionary<String, Order> = [:]
+    
+    var oidArray: Array<String> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,20 +24,27 @@ class OrderHistoryController: UITableViewController,DatabaseAPIDelegate {
     
     func initDatabase() {
         databaseAPI.delegate = self
-        databaseAPI.getAllOrdersArray { databaseOrders, error in
+        databaseAPI.getAllOrdersDictionary { databaseOrders, error in
             if (error == nil) {
-                self.orders = databaseOrders!
-                self.tableView.reloadData()
+                self.refreshData(dataOrders: databaseOrders!)
             }
         }
     }
-
+    
+    func refreshData(dataOrders: Dictionary<String, Order>) {
+        ordersDictionary = dataOrders
+        oidArray = Array(self.ordersDictionary.keys)
+        tableView.reloadData()
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return orders.count
+        
+        return oidArray.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orders[section].mealsList.count
+        
+        return (ordersDictionary[oidArray[section]]?.mealsList.count)!
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,18 +52,28 @@ class OrderHistoryController: UITableViewController,DatabaseAPIDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ??
             UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: identifier)
         
-        cell.textLabel?.text = orders[indexPath.section].mealsList[indexPath.row].keys.first
-        
+        let meal = ordersDictionary[oidArray[indexPath.section]]?.mealsList[indexPath.row]
+        cell.textLabel?.text = meal?.keys.first
+        cell.accessoryType = (meal?.values.first)! ? .checkmark : .none
+
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return orders[section].createTime
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        var mealsList = ordersDictionary[oidArray[indexPath.section]]?.mealsList
+        mealsList?[indexPath.row] = [(mealsList?[indexPath.row].keys.first)! : !(mealsList?[indexPath.row].values.first)!]
+        databaseAPI.updateMealsList(orderID: oidArray[indexPath.section], mealsList: mealsList!)
+
     }
     
-    func dataChangeEvent(databaseOrders: Array<Order>) {
-        self.orders = databaseOrders
-        self.tableView.reloadData()
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return ordersDictionary[oidArray[section]]?.tableNumber?.rawValue
+    }
+    
+    func dataChangeEvent(databaseOrders: Dictionary<String, Order>) {
+        refreshData(dataOrders: databaseOrders)
     }
 }

@@ -12,7 +12,7 @@ import Firebase
 import FirebaseDatabase
 
 protocol DatabaseAPIDelegate: class {
-    func dataChangeEvent(databaseOrders: Array<Order>)
+    func dataChangeEvent(databaseOrders: Dictionary<String, Order>)
 }
 
 class DatabaseAPI: NSObject {
@@ -34,13 +34,17 @@ class DatabaseAPI: NSObject {
     
     func addDBObserve() {
         databaseOrderPath.observe(DataEventType.value, with: { (snapshot) in
-            self.delegate?.dataChangeEvent(databaseOrders: self.convertServerDataToItemArray(snapshot: snapshot))
+            self.delegate?.dataChangeEvent(databaseOrders: self.convertServerDataToOrderDictionary(snapshot: snapshot))
         })
     }
     
-    func getAllOrdersArray(callback: @escaping (Array<Order>?, Error?) -> Void) {
+    func updateMealsList(orderID: String, mealsList: [Dictionary<String, Bool>]) {
+        databaseOrderPath.child(orderID).child("mealsList").setValue(mealsList)
+    }
+    
+    func getAllOrdersDictionary(callback: @escaping (Dictionary<String, Order>?, Error?) -> Void) {
         databaseOrderPath.observeSingleEvent(of: .value, with: { (snapshot) in
-            callback(self.convertServerDataToItemArray(snapshot: snapshot), nil)
+            callback(self.convertServerDataToOrderDictionary(snapshot: snapshot), nil)
         }) { (error) in
             callback(nil, error)
         }
@@ -60,16 +64,14 @@ class DatabaseAPI: NSObject {
         }
     }
     
-    func convertServerDataToItemArray(snapshot: DataSnapshot) -> Array<Order> {
-        var orderArray:Array<Order> = Array()
-        let ordersDictionary = snapshot.value as? NSDictionary
-        if let ordersValueArray = ordersDictionary?.allValues as? Array<Dictionary<String, Any>> {
-            for order in ordersValueArray {
-                let newOrder = Order(orderDic: order)
-                orderArray.append(newOrder)
+    private func convertServerDataToOrderDictionary(snapshot: DataSnapshot) -> Dictionary<String, Order> {
+        var ordersDictionary: Dictionary<String, Order> = [:]
+        if let snapshotDic = (snapshot.value as? Dictionary<String, Dictionary<String, Any>>) {
+            for orderDic in snapshotDic {
+                ordersDictionary[orderDic.key] = Order(orderDic: orderDic.value)
             }
         }
 
-        return orderArray
-    }  
+        return ordersDictionary
+    }
 }

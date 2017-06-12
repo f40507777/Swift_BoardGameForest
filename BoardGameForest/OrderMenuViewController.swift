@@ -55,7 +55,7 @@ class OrderMenuViewController: UITableViewController {
     }
     
     func sendOrder() {
-        let order = Order(meals: orderMealsArray)
+        let order = Order(meals:orderMealsArray ,table:.A1)
         databaseAPI.addOrder(order: order)
     }
     

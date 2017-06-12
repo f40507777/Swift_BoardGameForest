@@ -12,9 +12,13 @@ enum Table: String {
     case A1 = "A1"
     case A2 = "A2"
     case A3 = "A3"
-    case A4 = "A4"
     case B1 = "B1"
     case B2 = "B2"
+    case B3 = "B3"
+    case B4 = "B4"
+    case B5 = "B5"
+    case C1 = "C1"
+    case C2 = "C2"
 }
 
 class Order: NSObject {
@@ -31,18 +35,21 @@ class Order: NSObject {
     
     var mealsList: [Dictionary<String, Bool>] = []
     
+    var tableNumber: Table?
+    
     private var orderMeals: [Meal] = []
 
     override init() {
         super.init()
     }
     
-    init(meals: [Meal]) {
+    init(meals: [Meal], table: Table) {
         super.init()
         
         orderMeals = meals
         mealsList = getMealsList()
         totalAmount = calculationTotalAmount() - comboDiscount()
+        tableNumber = table
     }
     
     init(orderDic: Dictionary<String, Any>) {
@@ -51,13 +58,15 @@ class Order: NSObject {
         createTime = orderDic["createTime"] as! String
         totalAmount = orderDic["totalAmount"] as! Int
         mealsList = orderDic["mealsList"] as! [Dictionary<String, Bool>]
+        tableNumber = Table.init(rawValue: orderDic["tableNumber"] as! String)
     }
 
     func getDictionary() -> Dictionary<String, Any> {
         
         return ["createTime": createTime,
                 "totalAmount": totalAmount,
-                "mealsList": mealsList]
+                "mealsList": mealsList,
+                "tableNumber": tableNumber!.rawValue]
     }
     
     private func getMealsList() -> [Dictionary<String, Bool>] {
