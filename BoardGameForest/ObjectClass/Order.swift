@@ -8,19 +8,6 @@
 
 import UIKit
 
-enum Table: String {
-    case A1 = "A1"
-    case A2 = "A2"
-    case A3 = "A3"
-    case B1 = "B1"
-    case B2 = "B2"
-    case B3 = "B3"
-    case B4 = "B4"
-    case B5 = "B5"
-    case C1 = "C1"
-    case C2 = "C2"
-}
-
 class Order: NSObject {
     lazy var createTime: String = {
         let date = Date()
@@ -35,7 +22,7 @@ class Order: NSObject {
     
     var mealsList: [Dictionary<String, Bool>] = []
     
-    var tableNumber: Table?
+    var tableNumber: TableNumber?
     
     private var orderMeals: [Meal] = []
 
@@ -43,7 +30,7 @@ class Order: NSObject {
         super.init()
     }
     
-    init(meals: [Meal], table: Table) {
+    init(meals: [Meal], table: TableNumber) {
         super.init()
         
         orderMeals = meals
@@ -58,7 +45,7 @@ class Order: NSObject {
         createTime = orderDic["createTime"] as! String
         totalAmount = orderDic["totalAmount"] as! Int
         mealsList = orderDic["mealsList"] as! [Dictionary<String, Bool>]
-        tableNumber = Table.init(rawValue: orderDic["tableNumber"] as! String)
+//        tableNumber = Tables.init(rawValue: orderDic["tableNumber"] as! String)
     }
 
     func getDictionary() -> Dictionary<String, Any> {
