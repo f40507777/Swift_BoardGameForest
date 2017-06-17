@@ -42,6 +42,8 @@
 		B66D5B951EF59F2A0086707A /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D5B901EF59F2A0086707A /* SettingController.swift */; };
 		B66D5B991EF59F650086707A /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D5B971EF59F650086707A /* Meal.swift */; };
 		B66D5B9A1EF59F650086707A /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D5B981EF59F650086707A /* Order.swift */; };
+		B66D5B9D1EF5B3930086707A /* OrderTableNumberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D5B9B1EF5B3930086707A /* OrderTableNumberCollectionViewCell.swift */; };
+		B66D5B9E1EF5B3930086707A /* OrderTableNumberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D5B9C1EF5B3930086707A /* OrderTableNumberController.swift */; };
 		CC6692F906C4252BCC876511 /* Pods_BoardGameForest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF62B76687E12393CBF4D1AB /* Pods_BoardGameForest.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +87,8 @@
 		B66D5B901EF59F2A0086707A /* SettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		B66D5B971EF59F650086707A /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		B66D5B981EF59F650086707A /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		B66D5B9B1EF5B3930086707A /* OrderTableNumberCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableNumberCollectionViewCell.swift; sourceTree = "<group>"; };
+		B66D5B9C1EF5B3930086707A /* OrderTableNumberController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableNumberController.swift; sourceTree = "<group>"; };
 		BF62B76687E12393CBF4D1AB /* Pods_BoardGameForest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoardGameForest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -186,6 +190,8 @@
 		B66D5B8B1EF59F2A0086707A /* MainTabController */ = {
 			isa = PBXGroup;
 			children = (
+				B66D5B9B1EF5B3930086707A /* OrderTableNumberCollectionViewCell.swift */,
+				B66D5B9C1EF5B3930086707A /* OrderTableNumberController.swift */,
 				B66D5B8C1EF59F2A0086707A /* OrderHistoryController.swift */,
 				B66D5B8D1EF59F2A0086707A /* OrderMenuViewController.swift */,
 				B66D5B901EF59F2A0086707A /* SettingController.swift */,
@@ -347,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B66D5B9E1EF5B3930086707A /* OrderTableNumberController.swift in Sources */,
 				B66D5B991EF59F650086707A /* Meal.swift in Sources */,
 				B66D5B921EF59F2A0086707A /* OrderMenuViewController.swift in Sources */,
 				B6074D7F1EE389810082DD8A /* AppDelegate.swift in Sources */,
@@ -354,6 +361,7 @@
 				B66D5B911EF59F2A0086707A /* OrderHistoryController.swift in Sources */,
 				B659C9C41EE6884E008A425E /* TabBarController.swift in Sources */,
 				B617D0B11EE4C0AA0047F52A /* DatabaseAPI.swift in Sources */,
+				B66D5B9D1EF5B3930086707A /* OrderTableNumberCollectionViewCell.swift in Sources */,
 				B659C9BE1EE6864A008A425E /* TabBar.swift in Sources */,
 				B66D5B9A1EF59F650086707A /* Order.swift in Sources */,
 				B66D5B951EF59F2A0086707A /* SettingController.swift in Sources */,
