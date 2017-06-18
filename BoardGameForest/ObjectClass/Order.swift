@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import Firebase
 
 class Order: NSObject {
-    lazy var createTime: String = {
-        let date = Date()
-        let inFormatter = DateFormatter()
-        inFormatter.locale = NSLocale(localeIdentifier: "zh_TW") as Locale!
-        inFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        
-        return inFormatter.string(from: date)
-    }()
+//    lazy var createTime: String = {
+//        let date = Date()
+//        let inFormatter = DateFormatter()
+//        inFormatter.locale = NSLocale(localeIdentifier: "zh_TW") as Locale!
+//        inFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+//        
+//        return inFormatter.string(from: date)
+//    }()
+
+    var createTime: TimeInterval?
     
     var totalAmount: Int = 0
     
@@ -42,7 +45,7 @@ class Order: NSObject {
     init(orderDic: Dictionary<String, Any>) {
         super.init()
         
-        createTime = orderDic["createTime"] as! String
+        createTime = orderDic["createTime"] as? TimeInterval
         totalAmount = orderDic["totalAmount"] as! Int
         mealsList = orderDic["mealsList"] as! [Dictionary<String, Bool>]
         tableNumber = TableNumber(rawValue: orderDic["tableNumber"] as! String)
@@ -50,10 +53,10 @@ class Order: NSObject {
 
     func getDictionary() -> Dictionary<String, Any> {
         
-        return ["createTime": createTime,
-                "totalAmount": totalAmount,
-                "mealsList": mealsList,
-                "tableNumber": tableNumber!.rawValue]
+        return [DBCREATETIME: Date().timeIntervalSince1970,
+                DBTOTALAMOUNT: totalAmount,
+                DBMEALSLIST: mealsList,
+                DBTABLENUMBER: tableNumber!.rawValue]
     }
     
     private func getMealsList() -> [Dictionary<String, Bool>] {

@@ -24,7 +24,7 @@ class OrderHistoryController: UITableViewController,DatabaseAPIDelegate {
     
     func initDatabase() {
         databaseAPI.delegate = self
-        databaseAPI.getAllOrdersDictionary { databaseOrders, error in
+        databaseAPI.getTodayOrdersDictionary { databaseOrders, error in
             if (error == nil) {
                 self.refreshData(dataOrders: databaseOrders!)
             }
@@ -73,7 +73,7 @@ class OrderHistoryController: UITableViewController,DatabaseAPIDelegate {
         return ordersDictionary[oidArray[section]]?.tableNumber?.rawValue
     }
     
-    func dataChangeEvent(databaseOrders: Dictionary<String, Order>) {
+    func todayDataChangeEvent(databaseOrders: Dictionary<String, Order>) {
         refreshData(dataOrders: databaseOrders)
     }
 }

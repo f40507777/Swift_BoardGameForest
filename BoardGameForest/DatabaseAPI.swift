@@ -12,12 +12,30 @@ import Firebase
 import FirebaseDatabase
 
 protocol DatabaseAPIDelegate: class {
+    
     func dataChangeEvent(databaseOrders: Dictionary<String, Order>)
+    func todayDataChangeEvent(databaseOrders: Dictionary<String, Order>)
 }
+
+extension DatabaseAPIDelegate {
+    func dataChangeEvent(databaseOrders: Dictionary<String, Order>) {
+        
+    }
+}
+
+let DBORDER: String = "orders"
+
+let DBMEALSLIST: String = "mealsList"
+
+let DBCREATETIME: String = "createTime"
+
+let DBTOTALAMOUNT: String = "totalAmount"
+
+let DBTABLENUMBER: String = "tableNumber"
 
 class DatabaseAPI: NSObject {
 
-    private lazy var databaseOrderPath = Database.database().reference().child("orders")
+    private lazy var databaseOrderPath = Database.database().reference().child(DBORDER)
 
     weak var delegate: DatabaseAPIDelegate?
     
@@ -25,8 +43,9 @@ class DatabaseAPI: NSObject {
         super.init()
         
         addDBObserve()
+        addTodayDBObserve()
     }
-    
+
     
     func addOrder(order: Order) {
         databaseOrderPath.childByAutoId().setValue(order.getDictionary())
@@ -38,12 +57,26 @@ class DatabaseAPI: NSObject {
         })
     }
     
+    func addTodayDBObserve() {
+        databaseOrderPath.queryOrdered(byChild: DBCREATETIME).queryStarting(atValue: TimeFormate().getTodayTimeStamp()).observe(DataEventType.value, with: { (snapshot) in
+            self.delegate?.todayDataChangeEvent(databaseOrders: self.convertServerDataToOrderDictionary(snapshot: snapshot))
+        })
+    }
+    
     func updateMealsList(orderID: String, mealsList: [Dictionary<String, Bool>]) {
-        databaseOrderPath.child(orderID).child("mealsList").setValue(mealsList)
+        databaseOrderPath.child(orderID).child(DBMEALSLIST).setValue(mealsList)
     }
     
     func getAllOrdersDictionary(callback: @escaping (Dictionary<String, Order>?, Error?) -> Void) {
         databaseOrderPath.observeSingleEvent(of: .value, with: { (snapshot) in
+            callback(self.convertServerDataToOrderDictionary(snapshot: snapshot), nil)
+        }) { (error) in
+            callback(nil, error)
+        }
+    }
+    
+    func getTodayOrdersDictionary(callback: @escaping (Dictionary<String, Order>?, Error?) -> Void) {
+        databaseOrderPath.queryOrdered(byChild: DBCREATETIME).queryStarting(atValue: TimeFormate().getTodayTimeStamp()).observeSingleEvent(of: .value, with: { (snapshot) in
             callback(self.convertServerDataToOrderDictionary(snapshot: snapshot), nil)
         }) { (error) in
             callback(nil, error)
