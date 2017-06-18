@@ -16,6 +16,8 @@ class OrderTableNumberController: UICollectionViewController, UICollectionViewDe
 
     private var tablesData = TablesData()
     
+    private var currentIndexPath: IndexPath?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +37,7 @@ class OrderTableNumberController: UICollectionViewController, UICollectionViewDe
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! OrderTableNumberCollectionViewCell
         
-        cell.tableNumberLabel.text = "hello"
+        cell.tableNumberLabel.text = tablesData.floorTablesArray[indexPath.section].tableList?[indexPath.row].tableNumber?.rawValue
         cell.backgroundColor = UIColor.red
         
         return cell
@@ -50,18 +52,18 @@ class OrderTableNumberController: UICollectionViewController, UICollectionViewDe
         return headerView
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let menuViewController = OrderMenuViewController(table: (tablesData.floorTablesArray[indexPath.section].tableList?[indexPath.row])!)
+        navigationController?.pushViewController(menuViewController, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return (tablesData.floorTablesArray[indexPath.section].flowLayout.itemSize)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
-        return 20
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-
+        
         return (tablesData.floorTablesArray[section].flowLayout.sectionInset)
     }
 }

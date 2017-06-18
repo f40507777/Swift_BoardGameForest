@@ -16,10 +16,23 @@ class OrderMenuViewController: UITableViewController {
     
     var orderMealsArray: [Meal] = []
 
+    var table: Table
+    
+    init(table: Table) {
+        self.table = table
+        super.init(style: .plain)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Send", style: .plain, target: self, action: #selector(sendOrder))
+        navigationItem.title = table.tableNumber?.rawValue
     }
 
     
@@ -55,8 +68,9 @@ class OrderMenuViewController: UITableViewController {
     }
     
     func sendOrder() {
-        let order = Order(meals:orderMealsArray ,table:.A1)
+        let order = Order(meals:orderMealsArray ,table:table.tableNumber!)
         databaseAPI.addOrder(order: order)
+        navigationController?.popViewController(animated: true)
     }
     
 }

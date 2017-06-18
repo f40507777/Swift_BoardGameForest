@@ -45,7 +45,7 @@ class Order: NSObject {
         createTime = orderDic["createTime"] as! String
         totalAmount = orderDic["totalAmount"] as! Int
         mealsList = orderDic["mealsList"] as! [Dictionary<String, Bool>]
-//        tableNumber = Tables.init(rawValue: orderDic["tableNumber"] as! String)
+        tableNumber = TableNumber(rawValue: orderDic["tableNumber"] as! String)
     }
 
     func getDictionary() -> Dictionary<String, Any> {
