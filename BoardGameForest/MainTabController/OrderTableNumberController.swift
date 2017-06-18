@@ -41,7 +41,7 @@ class OrderTableNumberController: UICollectionViewController, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return (tablesData.floorTablesArray[indexPath.section].flowLayout?.itemSize)!
+        return (tablesData.floorTablesArray[indexPath.section].flowLayout.itemSize)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -51,7 +51,7 @@ class OrderTableNumberController: UICollectionViewController, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 
-        return (tablesData.floorTablesArray[section].flowLayout?.sectionInset)!
+        return (tablesData.floorTablesArray[section].flowLayout.sectionInset)
     }
     
 

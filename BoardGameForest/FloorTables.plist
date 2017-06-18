@@ -3,6 +3,8 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>name</key>
+		<string>1F</string>
 		<key>floorEnum</key>
 		<integer>0</integer>
 		<key>tableList</key>
@@ -34,6 +36,8 @@
 		</array>
 	</dict>
 	<dict>
+		<key>name</key>
+		<string>2F</string>
 		<key>floorEnum</key>
 		<integer>1</integer>
 		<key>tableList</key>
@@ -81,6 +85,8 @@
 		</array>
 	</dict>
 	<dict>
+		<key>name</key>
+		<string>3F</string>
 		<key>floorEnum</key>
 		<integer>2</integer>
 		<key>tableList</key>
