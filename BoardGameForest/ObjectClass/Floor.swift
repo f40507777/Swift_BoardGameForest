@@ -30,26 +30,28 @@ class Floor: NSObject {
     
     func setCollectionViewLayout(floorEnum: FloorEnum) {
         let width = UIScreen.main.bounds.width
+        let tableWidth:CGFloat = 64.0
+        
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 20
         
         switch floorEnum {
             
         case .FirstFloor:
-            flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: width / 2 - 10)
-            flowLayout.itemSize = CGSize(width: width / 2 + 10, height: 64)
+            flowLayout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: width / 2 - 10)
+            flowLayout.itemSize = CGSize(width: width / 2 + 10, height: tableWidth)
             
             break
             
         case .SecondFloor:
-            flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            flowLayout.itemSize = CGSize(width: width / 2 - 10, height: 64)
+            flowLayout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+            flowLayout.itemSize = CGSize(width: width / 2 - 10, height: tableWidth)
             
             break
             
         case .ThirdFloor:
-            flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            flowLayout.itemSize = CGSize(width: width / 2 - 10, height: 64)
+            flowLayout.sectionInset = UIEdgeInsets(top: 20, left: width / 2 - tableWidth / 2 , bottom: 20, right: width / 2 - tableWidth / 2)
+            flowLayout.itemSize = CGSize(width: tableWidth, height: width / 2 + 10)
             
             break
             

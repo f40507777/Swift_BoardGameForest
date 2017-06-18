@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BoardGameForest/ObjectClass/Floor.swift"
-            timestampString = "519491281.609554"
+            timestampString = "519493758.550069"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "setCollectionViewLayout(floorEnum:)"
             landmarkType = "7">
          </BreakpointContent>

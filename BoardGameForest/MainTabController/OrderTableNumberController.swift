@@ -12,6 +12,8 @@ class OrderTableNumberController: UICollectionViewController, UICollectionViewDe
     
     private let reuseIdentifier = "OrderTableNumberCollectionViewCell"
     
+    private let reuseHeaderViewIdentifier = "OrderTableNumbeSectionView"
+
     private var tablesData = TablesData()
     
     override func viewDidLoad() {
@@ -39,6 +41,15 @@ class OrderTableNumberController: UICollectionViewController, UICollectionViewDe
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseHeaderViewIdentifier, for: indexPath) as! OrderTableNumbeSectionView
+        
+        headerView.titleLabel.text = tablesData.floorTablesArray[indexPath.section].name
+        headerView.backgroundColor = UIColor.gray
+        return headerView
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return (tablesData.floorTablesArray[indexPath.section].flowLayout.itemSize)
@@ -53,7 +64,4 @@ class OrderTableNumberController: UICollectionViewController, UICollectionViewDe
 
         return (tablesData.floorTablesArray[section].flowLayout.sectionInset)
     }
-    
-
-
 }

@@ -50,22 +50,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IMS-l8-iVl">
-                            <size key="itemSize" width="168" height="72"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QhQ-0q-m6l">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="OrderTableNumberCollectionViewCell" reuseIdentifier="OrderTableNumberCollectionViewCell" id="aQ3-2Z-6ZQ" customClass="OrderTableNumberCollectionViewCell" customModule="BoardGameForest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="168" height="72"/>
+                                <rect key="frame" x="0.0" y="50" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="168" height="72"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Yr-aG-kIr">
-                                            <rect key="frame" x="63" y="25.5" width="42" height="21"/>
+                                            <rect key="frame" x="4" y="14.5" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -81,6 +81,25 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OrderTableNumbeSectionView" id="mr7-om-XgL" customClass="OrderTableNumbeSectionView" customModule="BoardGameForest" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZj-zT-XMq">
+                                    <rect key="frame" x="20" y="15" width="42" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="XZj-zT-XMq" firstAttribute="centerY" secondItem="mr7-om-XgL" secondAttribute="centerY" id="41O-KD-MP7"/>
+                                <constraint firstItem="XZj-zT-XMq" firstAttribute="leading" secondItem="mr7-om-XgL" secondAttribute="leading" constant="20" id="ewf-8u-Z6X"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="titleLabel" destination="XZj-zT-XMq" id="uvg-oS-xVF"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="QAf-x7-7Vb" id="bWY-Bm-dSJ"/>
                             <outlet property="delegate" destination="QAf-x7-7Vb" id="kkT-sd-zKf"/>
