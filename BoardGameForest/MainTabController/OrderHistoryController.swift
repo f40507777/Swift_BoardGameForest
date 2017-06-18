@@ -55,7 +55,7 @@ class OrderHistoryController: UITableViewController,DatabaseAPIDelegate {
         let meal = ordersDictionary[oidArray[indexPath.section]]?.mealsList[indexPath.row]
         cell.textLabel?.text = meal?.keys.first
         cell.accessoryType = (meal?.values.first)! ? .checkmark : .none
-
+        
         return cell
     }
 
@@ -69,7 +69,7 @@ class OrderHistoryController: UITableViewController,DatabaseAPIDelegate {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
+        print(TimeFormate().getPrettyTime(timeStamp: (ordersDictionary[oidArray[section]]?.createTime)!))
         return ordersDictionary[oidArray[section]]?.tableNumber?.rawValue
     }
     

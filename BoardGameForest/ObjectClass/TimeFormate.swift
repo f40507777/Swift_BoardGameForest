@@ -13,7 +13,7 @@ class TimeFormate: NSObject {
     func getTodayTimeStamp() -> TimeInterval {
         let comp: DateComponents = Calendar.current.dateComponents([.year, .month, .day], from: Date())
         let startOfDay = Calendar.current.date(from: comp)!
-        
+
         return startOfDay.timeIntervalSince1970
     }
     
@@ -22,6 +22,6 @@ class TimeFormate: NSObject {
         inFormatter.locale = NSLocale(localeIdentifier: "zh_TW") as Locale!
         inFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        return inFormatter.string(from: Date(timeIntervalSince1970: timeStamp/1000))
+        return inFormatter.string(from: Date(timeIntervalSince1970: timeStamp))
     }
 }

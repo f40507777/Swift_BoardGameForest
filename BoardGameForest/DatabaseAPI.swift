@@ -58,6 +58,8 @@ class DatabaseAPI: NSObject {
     }
     
     func addTodayDBObserve() {
+        let time = TimeFormate()
+        print(time.getPrettyTime(timeStamp: time.getTodayTimeStamp()))
         databaseOrderPath.queryOrdered(byChild: DBCREATETIME).queryStarting(atValue: TimeFormate().getTodayTimeStamp()).observe(DataEventType.value, with: { (snapshot) in
             self.delegate?.todayDataChangeEvent(databaseOrders: self.convertServerDataToOrderDictionary(snapshot: snapshot))
         })
