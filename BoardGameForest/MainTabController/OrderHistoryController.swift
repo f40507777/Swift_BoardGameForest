@@ -65,15 +65,21 @@ class OrderHistoryController: UITableViewController,DatabaseAPIDelegate {
         var mealsList = ordersDictionary[oidArray[indexPath.section]]?.mealsList
         mealsList?[indexPath.row] = [(mealsList?[indexPath.row].keys.first)! : !(mealsList?[indexPath.row].values.first)!]
         databaseAPI.updateMealsList(orderID: oidArray[indexPath.section], mealsList: mealsList!)
+        if isMealsIsAllFinish(meals: mealsList!) {
+            databaseAPI.updateOrderFinish(orderID: oidArray[indexPath.section], orderStatus: .已出餐)
+        }
 
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        print(TimeFormate().getPrettyTime(timeStamp: (ordersDictionary[oidArray[section]]?.createTime)!))
         return ordersDictionary[oidArray[section]]?.tableNumber?.rawValue
     }
     
     func todayDataChangeEvent(databaseOrders: Dictionary<String, Order>) {
         refreshData(dataOrders: databaseOrders)
+    }
+    
+    func isMealsIsAllFinish(meals: [Dictionary<String, Bool>]) -> Bool {
+        return meals.filter{$0.first?.value == false}.count == 0
     }
 }

@@ -9,15 +9,13 @@
 import UIKit
 import Firebase
 
+enum OrderStatus: Int {
+    case 未出餐
+    case 已出餐
+    case 已離開
+}
+
 class Order: NSObject {
-//    lazy var createTime: String = {
-//        let date = Date()
-//        let inFormatter = DateFormatter()
-//        inFormatter.locale = NSLocale(localeIdentifier: "zh_TW") as Locale!
-//        inFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-//        
-//        return inFormatter.string(from: date)
-//    }()
 
     var createTime: TimeInterval?
     
@@ -26,6 +24,8 @@ class Order: NSObject {
     var mealsList: [Dictionary<String, Bool>] = []
     
     var tableNumber: TableNumber?
+    
+    var status: OrderStatus?
     
     private var orderMeals: [Meal] = []
 
@@ -40,6 +40,7 @@ class Order: NSObject {
         mealsList = getMealsList()
         totalAmount = calculationTotalAmount() - comboDiscount()
         tableNumber = table
+        status = .未出餐
     }
     
     init(orderDic: Dictionary<String, Any>) {
@@ -49,6 +50,7 @@ class Order: NSObject {
         totalAmount = orderDic["totalAmount"] as! Int
         mealsList = orderDic["mealsList"] as! [Dictionary<String, Bool>]
         tableNumber = TableNumber(rawValue: orderDic["tableNumber"] as! String)
+        status = OrderStatus(rawValue: orderDic["status"] as! Int)
     }
 
     func getDictionary() -> Dictionary<String, Any> {
@@ -56,7 +58,8 @@ class Order: NSObject {
         return [DBCREATETIME: Date().timeIntervalSince1970,
                 DBTOTALAMOUNT: totalAmount,
                 DBMEALSLIST: mealsList,
-                DBTABLENUMBER: tableNumber!.rawValue]
+                DBTABLENUMBER: tableNumber!.rawValue,
+                DBSTATIUS: status!.rawValue]
     }
     
     private func getMealsList() -> [Dictionary<String, Bool>] {

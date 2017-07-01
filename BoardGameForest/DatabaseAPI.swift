@@ -14,6 +14,7 @@ import FirebaseDatabase
 protocol DatabaseAPIDelegate: class {
     
     func dataChangeEvent(databaseOrders: Dictionary<String, Order>)
+    
     func todayDataChangeEvent(databaseOrders: Dictionary<String, Order>)
 }
 
@@ -32,6 +33,8 @@ let DBCREATETIME: String = "createTime"
 let DBTOTALAMOUNT: String = "totalAmount"
 
 let DBTABLENUMBER: String = "tableNumber"
+
+let DBSTATIUS: String = "status"
 
 class DatabaseAPI: NSObject {
 
@@ -58,8 +61,6 @@ class DatabaseAPI: NSObject {
     }
     
     func addTodayDBObserve() {
-        let time = TimeFormate()
-        print(time.getPrettyTime(timeStamp: time.getTodayTimeStamp()))
         databaseOrderPath.queryOrdered(byChild: DBCREATETIME).queryStarting(atValue: TimeFormate().getTodayTimeStamp()).observe(DataEventType.value, with: { (snapshot) in
             self.delegate?.todayDataChangeEvent(databaseOrders: self.convertServerDataToOrderDictionary(snapshot: snapshot))
         })
@@ -67,6 +68,10 @@ class DatabaseAPI: NSObject {
     
     func updateMealsList(orderID: String, mealsList: [Dictionary<String, Bool>]) {
         databaseOrderPath.child(orderID).child(DBMEALSLIST).setValue(mealsList)
+    }
+    
+    func updateOrderFinish(orderID: String, orderStatus: OrderStatus) {
+        databaseOrderPath.child(orderID).child(DBSTATIUS).setValue(orderStatus.rawValue)
     }
     
     func getAllOrdersDictionary(callback: @escaping (Dictionary<String, Order>?, Error?) -> Void) {
