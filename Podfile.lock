@@ -35,12 +35,14 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.10)
+  - ObjectMapper (2.2.8)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - FirebaseUI/Database
+  - ObjectMapper (~> 2.2)
 
 SPEC CHECKSUMS:
   Firebase: 284eea779b73fdff309791817da7c68bff8dd572
@@ -52,7 +54,8 @@ SPEC CHECKSUMS:
   FirebaseUI: b9de05bfb4768db05f64ea90fc2f6a07b819118f
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
+  ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
 
-PODFILE CHECKSUM: b10d1dfbffb339262bb385b6343c1fd8c5c12a05
+PODFILE CHECKSUM: 6e34f721b8b9f10d41c2bbeed715d8f640dd6c8b
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.0.1

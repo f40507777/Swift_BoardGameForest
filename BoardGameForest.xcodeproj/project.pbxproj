@@ -200,6 +200,7 @@
 				B6DD2C9F1F56A7BE00EFA322 /* tempOrderList.swift */,
 				B6DD2C9D1F56A79A00EFA322 /* tempOrder.swift */,
 				B6DD2CA11F56A8BE00EFA322 /* tempMealStatus.swift */,
+				B66D5B971EF59F650086707A /* Meal.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,7 +280,6 @@
 			children = (
 				B6DD2C9B1F56A78000EFA322 /* Order.swift */,
 				B63F4CB01EF6D4BB00758F5F /* TimeFormate.swift */,
-				B66D5B971EF59F650086707A /* Meal.swift */,
 				B66D5BA71EF5D7980086707A /* Table.swift */,
 				B66D5BA91EF5D9110086707A /* Floor.swift */,
 				B66D5BAD1EF5DF100086707A /* TablesData.swift */,
@@ -413,7 +413,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7A13C271A793F892A8842C7C /* [CP] Embed Pods Frameworks */ = {

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DEA7CF2AAF710F7AB18277EEAC11878E"
+               BlueprintIdentifier = "BFD1E120FA42887A9B3DB0438316DBB7"
                BuildableName = "Pods_BoardGameForest.framework"
                BlueprintName = "Pods-BoardGameForest"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DEA7CF2AAF710F7AB18277EEAC11878E"
+            BlueprintIdentifier = "BFD1E120FA42887A9B3DB0438316DBB7"
             BuildableName = "Pods_BoardGameForest.framework"
             BlueprintName = "Pods-BoardGameForest"
             ReferencedContainer = "container:Pods.xcodeproj">
