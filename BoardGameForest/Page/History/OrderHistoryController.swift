@@ -52,9 +52,9 @@ class OrderHistoryController: UITableViewController,DatabaseAPIDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ??
             UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: identifier)
         
-        let meal = ordersDictionary[oidArray[indexPath.section]]?.mealsList[indexPath.row]
-        cell.textLabel?.text = meal?.keys.first
-        cell.accessoryType = (meal?.values.first)! ? .checkmark : .none
+//        let meal = ordersDictionary[oidArray[indexPath.section]]?.mealsList[indexPath.row]
+//        cell.textLabel?.text = meal?.keys.first
+//        cell.accessoryType = (meal?.values.first)! ? .checkmark : .none
         
         return cell
     }
@@ -62,12 +62,12 @@ class OrderHistoryController: UITableViewController,DatabaseAPIDelegate {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        var mealsList = ordersDictionary[oidArray[indexPath.section]]?.mealsList
-        mealsList?[indexPath.row] = [(mealsList?[indexPath.row].keys.first)! : !(mealsList?[indexPath.row].values.first)!]
-        databaseAPI.updateMealsList(orderID: oidArray[indexPath.section], mealsList: mealsList!)
-        if isMealsIsAllFinish(meals: mealsList!) {
-            databaseAPI.updateOrderFinish(orderID: oidArray[indexPath.section], orderStatus: .已出餐)
-        }
+//        var mealsList = ordersDictionary[oidArray[indexPath.section]]?.mealsList
+//        mealsList?[indexPath.row] = [(mealsList?[indexPath.row].keys.first)! : !(mealsList?[indexPath.row].values.first)!]
+//        databaseAPI.updateMealsList(orderID: oidArray[indexPath.section], mealsList: mealsList!)
+//        if isMealsIsAllFinish(meals: mealsList!) {
+//            databaseAPI.updateOrderFinish(orderID: oidArray[indexPath.section], orderStatus: .已出餐)
+//        }
 
     }
     

@@ -24,17 +24,19 @@ extension DatabaseAPIDelegate {
     }
 }
 
-let DBORDER: String = "orders"
+let DBORDER: String = "OrderList"
 
-let DBMEALSLIST: String = "mealsList"
+let DBORDERID: String = "OrderID"
 
-let DBCREATETIME: String = "createTime"
+let DBCREATETIME: String = "CreateTime"
 
-let DBTOTALAMOUNT: String = "totalAmount"
+let DBMEALSLIST: String = "MealsList"
 
-let DBTABLENUMBER: String = "tableNumber"
+let DBTOTALAMOUNT: String = "TotalAmount"
 
-let DBSTATIUS: String = "status"
+let DBTABLENUMBER: String = "TableNumber"
+
+let DBSTATIUS: String = "Status"
 
 class DatabaseAPI: NSObject {
 
@@ -51,7 +53,7 @@ class DatabaseAPI: NSObject {
 
     
     func addOrder(order: Order) {
-        databaseOrderPath.childByAutoId().setValue(order.getDictionary())
+        databaseOrderPath.setValue(order.getDictionary())
     }
     
     func addDBObserve() {
@@ -105,6 +107,8 @@ class DatabaseAPI: NSObject {
     }
     
     private func convertServerDataToOrderDictionary(snapshot: DataSnapshot) -> Dictionary<String, Order> {
+        var test = testOrder(snapshot: snapshot)
+        print(test.createTime)
         var ordersDictionary: Dictionary<String, Order> = [:]
         if let snapshotDic = (snapshot.value as? Dictionary<String, Dictionary<String, Any>>) {
             for orderDic in snapshotDic {

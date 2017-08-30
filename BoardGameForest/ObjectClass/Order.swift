@@ -16,12 +16,12 @@ enum OrderStatus: Int {
 }
 
 class Order: NSObject {
-
+    
     var createTime: TimeInterval?
     
     var totalAmount: Int = 0
     
-    var mealsList: [Dictionary<String, Bool>] = []
+    var mealsList: [tempMealStatus] = []
     
     var tableNumber: TableNumber?
     
@@ -48,24 +48,29 @@ class Order: NSObject {
         
         createTime = orderDic["createTime"] as? TimeInterval
         totalAmount = orderDic["totalAmount"] as! Int
-        mealsList = orderDic["mealsList"] as! [Dictionary<String, Bool>]
+        mealsList = orderDic["mealsList"] as! [tempMealStatus]
         tableNumber = TableNumber(rawValue: orderDic["tableNumber"] as! String)
         status = OrderStatus(rawValue: orderDic["status"] as! Int)
     }
 
     func getDictionary() -> Dictionary<String, Any> {
         
-        return [DBCREATETIME: Date().timeIntervalSince1970,
+        return [DBORDERID: Database.database().reference().childByAutoId().key,
+                DBCREATETIME: Date().timeIntervalSince1970,
                 DBTOTALAMOUNT: totalAmount,
                 DBMEALSLIST: mealsList,
                 DBTABLENUMBER: tableNumber!.rawValue,
                 DBSTATIUS: status!.rawValue]
     }
     
-    private func getMealsList() -> [Dictionary<String, Bool>] {
-        var tempList: [Dictionary<String, Bool>] = []
+    private func getMealsList() -> [tempMealStatus] {
+        var tempList: [tempMealStatus] = []
+        let orderlist = tempMealStatus()
+        
         for mealName in orderMeals.map({$0.name!}) {
-            tempList.append([mealName:false])
+            orderlist.name = mealName
+            orderlist.isSendOut = false
+            tempList.append(orderlist)
         }
         
         return tempList
