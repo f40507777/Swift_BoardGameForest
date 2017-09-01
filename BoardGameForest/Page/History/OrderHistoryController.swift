@@ -2,84 +2,83 @@
 //  OrderHistoryController.swift
 //  BoardGameForest
 //
-//  Created by Finn on 2017/6/6.
+//  Created by Finn on 2017/9/1.
 //  Copyright © 2017年 Finn. All rights reserved.
 //
 
 import UIKit
 
-class OrderHistoryController: UITableViewController,DatabaseAPIDelegate {
+class OrderHistoryController: UITableViewController, DatabaseAPIDelegate {
 
     lazy var databaseAPI = DatabaseAPI()
+    
+    var orderList: Array<Order> = []
 
-    var ordersDictionary: Dictionary<String, Order> = [:]
-    
-    var oidArray: Array<String> = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        initDatabase()
+
+        initData()
     }
-    
-    func initDatabase() {
+
+    func initData() {
         databaseAPI.delegate = self
-        databaseAPI.getTodayOrdersDictionary { databaseOrders, error in
-            if (error == nil) {
-                self.refreshData(dataOrders: databaseOrders!)
-            }
+        databaseAPI.getAllOrderList { (allOrderList, error) in
+            self.refreshOrderList(originalOrderList: allOrderList!)
         }
     }
     
-    func refreshData(dataOrders: Dictionary<String, Order>) {
-        ordersDictionary = dataOrders
-        oidArray = Array(self.ordersDictionary.keys)
-        tableView.reloadData()
+    private func refreshOrderList(originalOrderList: Array<Order>) {
+        orderList = originalOrderList.filter{$0.status == .未出餐}
+        self.tableView.reloadData()
     }
     
+    // MARK: - TableViewDelegate
+
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return oidArray.count
+        return orderList.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return (ordersDictionary[oidArray[section]]?.mealsList.count)!
+        return orderList[section].mealStatusList.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ??
             UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: identifier)
         
-//        let meal = ordersDictionary[oidArray[indexPath.section]]?.mealsList[indexPath.row]
-//        cell.textLabel?.text = meal?.keys.first
-//        cell.accessoryType = (meal?.values.first)! ? .checkmark : .none
+        let meal = orderList[indexPath.section].mealStatusList[indexPath.row]
+        cell.textLabel?.text = meal.name
+        cell.accessoryType = meal.isSendOut! ? .checkmark : .none
         
         return cell
     }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-
-//        var mealsList = ordersDictionary[oidArray[indexPath.section]]?.mealsList
-//        mealsList?[indexPath.row] = [(mealsList?[indexPath.row].keys.first)! : !(mealsList?[indexPath.row].values.first)!]
-//        databaseAPI.updateMealsList(orderID: oidArray[indexPath.section], mealsList: mealsList!)
-//        if isMealsIsAllFinish(meals: mealsList!) {
-//            databaseAPI.updateOrderFinish(orderID: oidArray[indexPath.section], orderStatus: .已出餐)
-//        }
-
-    }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return ordersDictionary[oidArray[section]]?.tableNumber?.rawValue
+        return orderList[section].tableNumber
     }
     
-    func todayDataChangeEvent(databaseOrders: Dictionary<String, Order>) {
-        refreshData(dataOrders: databaseOrders)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let order = orderList[indexPath.section]
+        order.mealStatusList[indexPath.row].isSendOut = !order.mealStatusList[indexPath.row].isSendOut!
+        if isAllMealsFinish(mealStatus: order.mealStatusList) {
+            order.status = .已出餐
+        }
+        databaseAPI.updateOrder(order: order)
     }
     
-    func isMealsIsAllFinish(meals: [Dictionary<String, Bool>]) -> Bool {
-        return meals.filter{$0.first?.value == false}.count == 0
+    // MARK: - DatabaseAPIDelegate
+    func dataChangeEvent(databaseOrders: Array<Order>) {
+        
+    }
+    
+    func todayDataChangeEvent(databaseOrders: Array<Order>) {
+        refreshOrderList(originalOrderList: databaseOrders)
+    }
+    
+    private func isAllMealsFinish(mealStatus: Array<MealStatus>) -> Bool{
+        return mealStatus.filter{$0.isSendOut == true}.count == mealStatus.count
     }
 }

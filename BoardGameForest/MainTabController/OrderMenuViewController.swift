@@ -14,7 +14,7 @@ class OrderMenuViewController: UITableViewController {
     
     lazy var meals = MenuParser().mealArray
     
-    var orderMealsArray: [Meal] = []
+    var orderMealsArray: [MealStatus] = []
 
     var table: Table
     
@@ -69,7 +69,7 @@ class OrderMenuViewController: UITableViewController {
     
     func sendOrder() {
         let order = Order(meals:orderMealsArray ,table:table.tableNumber!)
-        databaseAPI.addOrder(order: order)
+        databaseAPI.updateOrder(order: order)
         navigationController?.popViewController(animated: true)
     }
     

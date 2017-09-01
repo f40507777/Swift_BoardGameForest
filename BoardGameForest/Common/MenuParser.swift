@@ -9,16 +9,17 @@
 import UIKit
 
 class MenuParser: NSObject {
-    lazy var mealArray: [[Meal]] = {
-        var mealDynomicArray: [[Meal]] = []
+    lazy var mealArray: [[MealStatus]] = {
+        var mealDynomicArray: [[MealStatus]] = []
         if let path = Bundle.main.path(forResource: "Menu", ofType: "plist") {
             for mealTypes in NSArray(contentsOfFile: path) as! Array<Array<Dictionary<String, Any>>> {
-                var mealTypesDynomicArray: [Meal] = []
+                var mealTypesDynomicArray: [MealStatus] = []
                 for mealDictionary in mealTypes {
-                    let meal = Meal()
+                    let meal = MealStatus()
                     meal.name = mealDictionary["name"] as? String
                     meal.price = mealDictionary["price"] as! Int
                     meal.type = mealDictionary["type"] as? Int
+                    meal.isSendOut = false
                     mealTypesDynomicArray.append(meal)
                 }
                 mealDynomicArray.append(mealTypesDynomicArray)

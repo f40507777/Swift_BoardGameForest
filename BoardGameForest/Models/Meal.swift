@@ -8,11 +8,7 @@
 
 import UIKit
 
-enum MealType: Int {
-    case Beverage
-    case Dessert
-    case MainCourse
-}
+
 
 class Meal: NSObject {
     var name: String?
