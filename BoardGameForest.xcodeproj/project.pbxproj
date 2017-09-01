@@ -19,6 +19,8 @@
 		B617D0B11EE4C0AA0047F52A /* DatabaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B617D0B01EE4C0AA0047F52A /* DatabaseAPI.swift */; };
 		B63F4CAF1EF6D4BB00758F5F /* OrderTableNumbeSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F4CAE1EF6D4BB00758F5F /* OrderTableNumbeSectionView.swift */; };
 		B63F4CB11EF6D4BB00758F5F /* TimeFormate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F4CB01EF6D4BB00758F5F /* TimeFormate.swift */; };
+		B658E3271F595DA2008CECD2 /* OrderMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658E3251F595DA2008CECD2 /* OrderMenuTableViewCell.swift */; };
+		B658E3281F595DA2008CECD2 /* OrderMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B658E3261F595DA2008CECD2 /* OrderMenuTableViewCell.xib */; };
 		B659C9A91EE68045008A425E /* ic_account_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = B659C9971EE68045008A425E /* ic_account_circle.png */; };
 		B659C9AA1EE68045008A425E /* ic_account_circle_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B659C9981EE68045008A425E /* ic_account_circle_2x.png */; };
 		B659C9AB1EE68045008A425E /* ic_account_circle_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B659C9991EE68045008A425E /* ic_account_circle_3x.png */; };
@@ -73,6 +75,8 @@
 		B617D0B01EE4C0AA0047F52A /* DatabaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAPI.swift; sourceTree = "<group>"; };
 		B63F4CAE1EF6D4BB00758F5F /* OrderTableNumbeSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableNumbeSectionView.swift; sourceTree = "<group>"; };
 		B63F4CB01EF6D4BB00758F5F /* TimeFormate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormate.swift; sourceTree = "<group>"; };
+		B658E3251F595DA2008CECD2 /* OrderMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMenuTableViewCell.swift; sourceTree = "<group>"; };
+		B658E3261F595DA2008CECD2 /* OrderMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderMenuTableViewCell.xib; sourceTree = "<group>"; };
 		B659C9971EE68045008A425E /* ic_account_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_account_circle.png; sourceTree = "<group>"; };
 		B659C9981EE68045008A425E /* ic_account_circle_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_account_circle_2x.png; sourceTree = "<group>"; };
 		B659C9991EE68045008A425E /* ic_account_circle_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_account_circle_3x.png; sourceTree = "<group>"; };
@@ -224,9 +228,11 @@
 		B607F5EC1F56A53F00337F79 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				B678C0D81F59540F007332CE /* Cell */,
 				B66D5B9B1EF5B3930086707A /* OrderTableNumberCollectionViewCell.swift */,
 				B63F4CAE1EF6D4BB00758F5F /* OrderTableNumbeSectionView.swift */,
 				B66D5B9C1EF5B3930086707A /* OrderTableNumberController.swift */,
+				B66D5B8D1EF59F2A0086707A /* OrderMenuViewController.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -267,9 +273,17 @@
 		B66D5B8B1EF59F2A0086707A /* MainTabController */ = {
 			isa = PBXGroup;
 			children = (
-				B66D5B8D1EF59F2A0086707A /* OrderMenuViewController.swift */,
 			);
 			path = MainTabController;
+			sourceTree = "<group>";
+		};
+		B678C0D81F59540F007332CE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B658E3251F595DA2008CECD2 /* OrderMenuTableViewCell.swift */,
+				B658E3261F595DA2008CECD2 /* OrderMenuTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B6DD2C951F56A5EB00EFA322 /* Common */ = {
@@ -357,6 +371,7 @@
 				B659C9B01EE68045008A425E /* ic_face_2x.png in Resources */,
 				B659C9AD1EE68045008A425E /* ic_assignment_2x.png in Resources */,
 				B659C9B81EE68045008A425E /* ic_settings.png in Resources */,
+				B658E3281F595DA2008CECD2 /* OrderMenuTableViewCell.xib in Resources */,
 				B66D5BAC1EF5DB020086707A /* FloorTables.plist in Resources */,
 				B659C9BA1EE68045008A425E /* ic_settings_3x.png in Resources */,
 				B617D0AD1EE459630047F52A /* menuImage.jpg in Resources */,
@@ -458,6 +473,7 @@
 				B659C9BE1EE6864A008A425E /* TabBar.swift in Sources */,
 				B66D5B951EF59F2A0086707A /* SettingController.swift in Sources */,
 				B6074D871EE389810082DD8A /* BoardGameForest.xcdatamodeld in Sources */,
+				B658E3271F595DA2008CECD2 /* OrderMenuTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

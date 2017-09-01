@@ -8,14 +8,14 @@
 
 import UIKit
 
-class OrderMenuViewController: UITableViewController {
+class OrderMenuViewController: UITableViewController, OrderMenuCellDelegate {
 
     lazy var databaseAPI = DatabaseAPI()
     
     lazy var meals = MenuParser().mealArray
     
     var orderMealsArray: [MealStatus] = []
-
+    
     var table: Table
     
     init(table: Table) {
@@ -31,10 +31,18 @@ class OrderMenuViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initTableView()
+        setNavigationItem()
+    }
+    
+    func initTableView() {
+        tableView.register(UINib(nibName: "OrderMenuTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderMenuTableViewCell")
+    }
+    
+    func setNavigationItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Send", style: .plain, target: self, action: #selector(sendOrder))
         navigationItem.title = table.tableNumber?.rawValue
     }
-
     
     override func numberOfSections(in tableView: UITableView) -> Int {
 
@@ -47,12 +55,12 @@ class OrderMenuViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = "cell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ??
-            UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: identifier)
-        
+
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "OrderMenuTableViewCell") as! OrderMenuTableViewCell
+
         let meal = meals[indexPath.section][indexPath.row]
         cell.textLabel!.text = meal.name
+        cell.delegate = self
         
         return cell
     }
@@ -72,5 +80,15 @@ class OrderMenuViewController: UITableViewController {
         databaseAPI.updateOrder(order: order)
         navigationController?.popViewController(animated: true)
     }
+    
+    // MARK: OrderMenuCellDelegate
+    func additionCountEvent(mealName: String) {
+        
+    }
+    
+    func subtractionCountEvent(mealName: String) {
+        
+    }
+    
     
 }
