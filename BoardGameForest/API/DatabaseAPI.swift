@@ -37,36 +37,16 @@ class DatabaseAPI: NSObject {
         addDBObserve()
         addTodayDBObserve()
     }
+    
+    // MARK: - Update
 
-    
-
-    
-    func addDBObserve() {
-        databaseOrderPath.observe(DataEventType.value, with: { (snapshot) in
-            self.delegate?.dataChangeEvent(databaseOrders: self.getOrderListBySnapshot(snapshot: snapshot))
-        })
-    }
-    
     func updateOrder(order: Order) {
         databaseOrderPath.child(order.orderID).setValue(order.toJSON())
     }
     
-    func addTodayDBObserve() {
-        databaseOrderPath.queryOrdered(byChild: DTCREATETIME).queryStarting(atValue: TimeFormate().getTodayTimeStamp()).observe(DataEventType.value, with: { (snapshot) in
-            let orderList = Mapper<OrderList>().map(JSON: [snapshot.key : snapshot.value as Any])
-            self.delegate?.todayDataChangeEvent(databaseOrders: (orderList?.list)!)
-        })
-        
-    }
     
-    func updateMealsList(orderID: String, mealStatusList: Array<MealStatus>) {
-        databaseOrderPath.child(orderID).child(DTORDERLIST).setValue(mealStatusList.toJSON())
-    }
-    
-    func updateOrderFinish(orderID: String, orderStatus: OrderStatus) {
-        databaseOrderPath.child(orderID).child(DTSTATIUS).setValue(orderStatus.rawValue)
-    }
-    
+    // MARK: - Get
+
     func getAllOrderList(callback: @escaping (Array<Order>?, Error?) -> Void) {
         databaseOrderPath.observeSingleEvent(of: .value, with: { (snapshot) in
             callback(self.getOrderListBySnapshot(snapshot: snapshot), nil)
@@ -75,8 +55,7 @@ class DatabaseAPI: NSObject {
         }
     }
     
-    
-    func getTodayOrdersDictionary(callback: @escaping (Array<Order>?, Error?) -> Void) {
+    func getTodayOrderList(callback: @escaping (Array<Order>?, Error?) -> Void) {
         databaseOrderPath.queryOrdered(byChild: DTCREATETIME).queryStarting(atValue: TimeFormate().getTodayTimeStamp()).observeSingleEvent(of: .value, with: { (snapshot) in
             callback(self.getOrderListBySnapshot(snapshot: snapshot), nil)
         }) { (error) in
@@ -84,19 +63,38 @@ class DatabaseAPI: NSObject {
         }
     }
     
+    // MARK: - Public
+
+    func hackLogin() {
+        Auth.auth().signIn(withEmail: "f40507777@gmail.com", password: "123456") { (user, error) in
+            if error == nil {
+                print("login success")
+            } else {
+                print("login failed")
+            }
+        }
+    }
+    
     func clearAllData() {
         databaseOrderPath.setValue(nil)
     }
     
-    func hackLogin() {
-        Auth.auth().signIn(withEmail: "f40507777@gmail.com", password: "123456") { (user, error) in
-            if error == nil {
-                print("success")
-            } else {
-                print("error")
-            }
-        }
+    // MARK: - Private
+
+    private func addDBObserve() {
+        databaseOrderPath.observe(DataEventType.value, with: { (snapshot) in
+            self.delegate?.dataChangeEvent(databaseOrders: self.getOrderListBySnapshot(snapshot: snapshot))
+        })
     }
+    
+    private func addTodayDBObserve() {
+        databaseOrderPath.queryOrdered(byChild: DTCREATETIME).queryStarting(atValue: TimeFormate().getTodayTimeStamp()).observe(DataEventType.value, with: { (snapshot) in
+            let orderList = Mapper<OrderList>().map(JSON: [snapshot.key : snapshot.value as Any])
+            self.delegate?.todayDataChangeEvent(databaseOrders: (orderList?.list)!)
+        })
+        
+    }
+
     
     private func getOrderListBySnapshot(snapshot :DataSnapshot) -> Array<Order>{
         let orderList:OrderList = Mapper<OrderList>().map(JSON: [snapshot.key : snapshot.value as Any])!
