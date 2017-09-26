@@ -12,10 +12,10 @@ import FirebaseDatabase
 
 class OrderList: Mappable {
     
-    var orderDictionary: [String : Order]?
+    var orderDictionary: [String : Order] = [:]
 
     lazy var list: [Order] = {
-        return Array(self.orderDictionary!.values)
+        return Array(self.orderDictionary.values)
     }()
     
     init() {

@@ -38,7 +38,7 @@ class OrderTableNumberController: UICollectionViewController, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! OrderTableNumberCollectionViewCell
         
         cell.tableNumberLabel.text = tablesData.floorTablesArray[indexPath.section].tableList?[indexPath.row].tableNumber?.rawValue
-        cell.backgroundColor = UIColor.red
+        cell.backgroundColor = UIColor.lightGray
         
         return cell
     }

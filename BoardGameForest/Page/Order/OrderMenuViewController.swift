@@ -76,9 +76,16 @@ class OrderMenuViewController: UITableViewController, OrderMenuCellDelegate {
     }
     
     func sendOrder() {
-        let order = Order(meals:orderMealsArray ,table:table.tableNumber!)
-        databaseAPI.updateOrder(order: order)
-        navigationController?.popViewController(animated: true)
+        if orderMealsArray.count > 0 {
+            let order = Order(meals:orderMealsArray ,table:table.tableNumber!)
+            databaseAPI.updateOrder(order: order)
+            navigationController?.popViewController(animated: true)
+        }
+        
+        let noItemAlert = UIAlertController(title: "沒有餐點", message: "請至少點選一份餐點", preferredStyle: UIAlertControllerStyle.alert)
+        noItemAlert.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
+        present(noItemAlert, animated: true, completion: nil)
+
     }
     
     // MARK: OrderMenuCellDelegate
