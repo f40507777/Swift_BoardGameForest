@@ -17,7 +17,9 @@ protocol OrderMenuCellDelegate: class {
 
 class OrderMenuTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+        
+    @IBOutlet weak var countTextField: UITextField!
     
     weak var delegate: OrderMenuCellDelegate?
 
@@ -29,7 +31,7 @@ class OrderMenuTableViewCell: UITableViewCell {
         }
         set {
             _count = newValue < 0 ? 0 : newValue
-            countLabel.text = String(_count)
+            countTextField.text = String(_count);
         }
     }
     

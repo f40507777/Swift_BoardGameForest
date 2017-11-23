@@ -59,7 +59,7 @@ class OrderMenuViewController: UITableViewController, OrderMenuCellDelegate {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "OrderMenuTableViewCell") as! OrderMenuTableViewCell
 
         let meal = meals[indexPath.section][indexPath.row]
-        cell.textLabel!.text = meal.name
+        cell.nameLabel!.text = meal.name
         cell.delegate = self
         
         return cell
