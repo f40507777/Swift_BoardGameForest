@@ -35,6 +35,10 @@ class OrderMenuTableViewCell: UITableViewCell {
         }
     }
     
+    var addButtonTapAction: (() -> Void)? = nil
+
+    var removeButtonTapAction: (() -> Void)? = nil
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -46,12 +50,15 @@ class OrderMenuTableViewCell: UITableViewCell {
     
 
     @IBAction func clickAdditionButton(_ sender: UIButton) {
-        count += 1
-        
+        if (self.addButtonTapAction != nil) {
+            self.addButtonTapAction!()
+        }
     }
     
     @IBAction func clickSubtractionButton(_ sender: UIButton) {
-        count -= 1
+        if (self.removeButtonTapAction != nil) {
+            self.removeButtonTapAction!()
+        }
     }
     
     

@@ -58,9 +58,16 @@ class OrderMenuViewController: UITableViewController, OrderMenuCellDelegate {
 
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "OrderMenuTableViewCell") as! OrderMenuTableViewCell
 
-        let meal = meals[indexPath.section][indexPath.row]
+        let meal:MealStatus = meals[indexPath.section][indexPath.row]
         cell.nameLabel!.text = meal.name
         cell.delegate = self
+        cell.addButtonTapAction = {
+            self.orderMealsArray.append(meal)
+        }
+        cell.removeButtonTapAction = {
+            //need remove just one
+            self.orderMealsArray = self.orderMealsArray.filter{$0.name != meal.name}
+        }
         
         return cell
     }
