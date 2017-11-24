@@ -19,6 +19,7 @@ class MenuParser: NSObject {
                     meal.name = mealDictionary["name"] as? String
                     meal.price = mealDictionary["price"] as! Int
                     meal.type = mealDictionary["type"] as? Int
+                    meal.itemID = mealDictionary["itemID"] as? String
                     meal.isSendOut = false
                     mealTypesDynomicArray.append(meal)
                 }

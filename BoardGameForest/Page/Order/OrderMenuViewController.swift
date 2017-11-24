@@ -16,6 +16,8 @@ class OrderMenuViewController: UITableViewController, OrderMenuCellDelegate {
     
     var orderMealsArray: [MealStatus] = []
     
+    var mealList = MealList()
+    
     var table: Table
     
     init(table: Table) {
@@ -61,12 +63,15 @@ class OrderMenuViewController: UITableViewController, OrderMenuCellDelegate {
         let meal:MealStatus = meals[indexPath.section][indexPath.row]
         cell.nameLabel!.text = meal.name
         cell.delegate = self
+        cell.count = mealList.count(mealStatus: meal)
         cell.addButtonTapAction = {
-            self.orderMealsArray.append(meal)
+            self.mealList.add(mealStatus: meal)
+            self.tableView.reloadData()
+
         }
         cell.removeButtonTapAction = {
-            //need remove just one
-            self.orderMealsArray = self.orderMealsArray.filter{$0.name != meal.name}
+            self.mealList.remove(mealStatus: meal)
+            self.tableView.reloadData()
         }
         
         return cell

@@ -21,9 +21,10 @@ class MealStatus: Mappable {
     var isSendOut: Bool?
     var price: Int = 0
     var type: Int?
+    var itemID: String?
     
     init() {
-        
+
     }
     
     required init?(map: Map) {
@@ -35,6 +36,7 @@ class MealStatus: Mappable {
         isSendOut   <- map[DTMEALISSENDOUT]
         price       <- map[DTMEALPRICE]
         type        <- map[DTMEALTYPE]
+        itemID      <- map[DTMEALITEMID]
     }
     
 

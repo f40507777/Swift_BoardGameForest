@@ -30,6 +30,8 @@ let DTMEALPRICE: String = "Price"
 
 let DTMEALTYPE: String = "Type"
 
+let DTMEALITEMID: String = "ItemID"
+
 class DefineText: NSObject {
 
 }

@@ -24,7 +24,6 @@
 		B659C9C41EE6884E008A425E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B659C9C31EE6884E008A425E /* TabBarController.swift */; };
 		B66D5B921EF59F2A0086707A /* OrderMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D5B8D1EF59F2A0086707A /* OrderMenuViewController.swift */; };
 		B66D5B951EF59F2A0086707A /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D5B901EF59F2A0086707A /* SettingController.swift */; };
-		B66D5B991EF59F650086707A /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D5B971EF59F650086707A /* Meal.swift */; };
 		B66D5B9D1EF5B3930086707A /* OrderTableNumberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D5B9B1EF5B3930086707A /* OrderTableNumberCollectionViewCell.swift */; };
 		B66D5B9E1EF5B3930086707A /* OrderTableNumberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D5B9C1EF5B3930086707A /* OrderTableNumberController.swift */; };
 		B66D5BA81EF5D7980086707A /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D5BA71EF5D7980086707A /* Table.swift */; };
@@ -36,6 +35,7 @@
 		B6DD2CA21F56A8BE00EFA322 /* MealStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DD2CA11F56A8BE00EFA322 /* MealStatus.swift */; };
 		B6E0DC371F592A4B00944F96 /* OrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E0DC361F592A4B00944F96 /* OrderList.swift */; };
 		B6E0DC391F59301B00944F96 /* OrderHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E0DC381F59301B00944F96 /* OrderHistoryController.swift */; };
+		B6EB17FE1FC7FAF10055E167 /* MealList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EB17FD1FC7FAF10055E167 /* MealList.swift */; };
 		CC6692F906C4252BCC876511 /* Pods_BoardGameForest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF62B76687E12393CBF4D1AB /* Pods_BoardGameForest.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +61,6 @@
 		B659C9C31EE6884E008A425E /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B66D5B8D1EF59F2A0086707A /* OrderMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderMenuViewController.swift; sourceTree = "<group>"; };
 		B66D5B901EF59F2A0086707A /* SettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
-		B66D5B971EF59F650086707A /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		B66D5B9B1EF5B3930086707A /* OrderTableNumberCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableNumberCollectionViewCell.swift; sourceTree = "<group>"; };
 		B66D5B9C1EF5B3930086707A /* OrderTableNumberController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableNumberController.swift; sourceTree = "<group>"; };
 		B66D5BA71EF5D7980086707A /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
@@ -73,6 +72,7 @@
 		B6DD2CA11F56A8BE00EFA322 /* MealStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealStatus.swift; sourceTree = "<group>"; };
 		B6E0DC361F592A4B00944F96 /* OrderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderList.swift; sourceTree = "<group>"; };
 		B6E0DC381F59301B00944F96 /* OrderHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryController.swift; sourceTree = "<group>"; };
+		B6EB17FD1FC7FAF10055E167 /* MealList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealList.swift; sourceTree = "<group>"; };
 		BF62B76687E12393CBF4D1AB /* Pods_BoardGameForest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoardGameForest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -157,9 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				B6E0DC361F592A4B00944F96 /* OrderList.swift */,
+				B6EB17FD1FC7FAF10055E167 /* MealList.swift */,
 				B6DD2C9D1F56A79A00EFA322 /* Order.swift */,
 				B6DD2CA11F56A8BE00EFA322 /* MealStatus.swift */,
-				B66D5B971EF59F650086707A /* Meal.swift */,
 				B66D5BA71EF5D7980086707A /* Table.swift */,
 				B66D5BA91EF5D9110086707A /* Floor.swift */,
 				B66D5BAD1EF5DF100086707A /* TablesData.swift */,
@@ -370,8 +370,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B66D5B9E1EF5B3930086707A /* OrderTableNumberController.swift in Sources */,
-				B66D5B991EF59F650086707A /* Meal.swift in Sources */,
 				B6DD2C9E1F56A79A00EFA322 /* Order.swift in Sources */,
+				B6EB17FE1FC7FAF10055E167 /* MealList.swift in Sources */,
 				B66D5B921EF59F2A0086707A /* OrderMenuViewController.swift in Sources */,
 				B6E0DC391F59301B00944F96 /* OrderHistoryController.swift in Sources */,
 				B66D5BAE1EF5DF100086707A /* TablesData.swift in Sources */,

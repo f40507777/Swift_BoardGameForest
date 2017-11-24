@@ -4,6 +4,8 @@
 <array>
 	<array>
 		<dict>
+			<key>itemID</key>
+			<string>b01</string>
 			<key>name</key>
 			<string>無糖烏龍</string>
 			<key>price</key>
@@ -12,6 +14,8 @@
 			<integer>0</integer>
 		</dict>
 		<dict>
+			<key>itemID</key>
+			<string>b02</string>
 			<key>name</key>
 			<string>森林的紅</string>
 			<key>price</key>
@@ -20,6 +24,8 @@
 			<integer>0</integer>
 		</dict>
 		<dict>
+			<key>itemID</key>
+			<string>b03</string>
 			<key>name</key>
 			<string>森林的綠</string>
 			<key>price</key>
@@ -28,6 +34,8 @@
 			<integer>0</integer>
 		</dict>
 		<dict>
+			<key>itemID</key>
+			<string>b04</string>
 			<key>name</key>
 			<string>森林的黑</string>
 			<key>price</key>
@@ -36,6 +44,8 @@
 			<integer>0</integer>
 		</dict>
 		<dict>
+			<key>itemID</key>
+			<string>b05</string>
 			<key>name</key>
 			<string>森林的白</string>
 			<key>price</key>
@@ -46,6 +56,8 @@
 	</array>
 	<array>
 		<dict>
+			<key>itemID</key>
+			<string>d01</string>
 			<key>name</key>
 			<string>森林爆米花</string>
 			<key>price</key>
@@ -54,6 +66,8 @@
 			<integer>1</integer>
 		</dict>
 		<dict>
+			<key>itemID</key>
+			<string>d02</string>
 			<key>name</key>
 			<string>雞米花</string>
 			<key>price</key>
@@ -62,6 +76,8 @@
 			<integer>1</integer>
 		</dict>
 		<dict>
+			<key>itemID</key>
+			<string>d03</string>
 			<key>name</key>
 			<string>雞塊</string>
 			<key>price</key>
@@ -70,6 +86,8 @@
 			<integer>1</integer>
 		</dict>
 		<dict>
+			<key>itemID</key>
+			<string>d04</string>
 			<key>name</key>
 			<string>薯條</string>
 			<key>price</key>
@@ -80,6 +98,8 @@
 	</array>
 	<array>
 		<dict>
+			<key>itemID</key>
+			<string>m01</string>
 			<key>name</key>
 			<string>香草起司雞飯</string>
 			<key>price</key>
@@ -88,6 +108,8 @@
 			<integer>2</integer>
 		</dict>
 		<dict>
+			<key>itemID</key>
+			<string>m02</string>
 			<key>name</key>
 			<string>紅酒燉牛肉飯</string>
 			<key>price</key>
@@ -96,6 +118,8 @@
 			<integer>2</integer>
 		</dict>
 		<dict>
+			<key>itemID</key>
+			<string>m03</string>
 			<key>name</key>
 			<string>番茄肉醬義大利麵</string>
 			<key>price</key>
@@ -104,6 +128,8 @@
 			<integer>2</integer>
 		</dict>
 		<dict>
+			<key>itemID</key>
+			<string>m04</string>
 			<key>name</key>
 			<string>奶油培根義大利麵</string>
 			<key>price</key>
