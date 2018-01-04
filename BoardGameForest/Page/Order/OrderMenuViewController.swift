@@ -9,8 +9,6 @@
 import UIKit
 
 class OrderMenuViewController: UITableViewController {
-
-    lazy var databaseAPI = DatabaseAPI()
     
     lazy var meals = MenuParser().mealArray
     
@@ -86,15 +84,13 @@ class OrderMenuViewController: UITableViewController {
     }
     
     @objc func sendOrder() {
-        
         if isEmptyList() || isOverSet() {
             return
         }
         
         if orderList.array.count > 0 {
-            let order = Order(meals:orderList.array ,table:table.tableNumber!)
-            databaseAPI.updateOrder(order: order)
-            navigationController?.popViewController(animated: true)
+            let checkViewController = CheckViewController(meals: orderList, tableNumber: table.tableNumber!)
+            navigationController?.pushViewController(checkViewController, animated: true)
         }
     }
     

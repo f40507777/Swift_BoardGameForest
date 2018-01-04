@@ -17,6 +17,10 @@
 		B617D0AB1EE458800047F52A /* Menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = B617D0AA1EE458800047F52A /* Menu.plist */; };
 		B617D0AD1EE459630047F52A /* menuImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B617D0AC1EE459630047F52A /* menuImage.jpg */; };
 		B617D0B11EE4C0AA0047F52A /* DatabaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B617D0B01EE4C0AA0047F52A /* DatabaseAPI.swift */; };
+		B6380A2B1FFE40B300844FA5 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6380A291FFE40B300844FA5 /* CheckViewController.swift */; };
+		B6380A2C1FFE40B300844FA5 /* CheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6380A2A1FFE40B300844FA5 /* CheckViewController.xib */; };
+		B6380A2F1FFE50AE00844FA5 /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6380A2D1FFE50AE00844FA5 /* CheckTableViewCell.swift */; };
+		B6380A301FFE50AE00844FA5 /* CheckTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6380A2E1FFE50AE00844FA5 /* CheckTableViewCell.xib */; };
 		B63F4CAF1EF6D4BB00758F5F /* OrderTableNumbeSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F4CAE1EF6D4BB00758F5F /* OrderTableNumbeSectionView.swift */; };
 		B63F4CB11EF6D4BB00758F5F /* TimeFormate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F4CB01EF6D4BB00758F5F /* TimeFormate.swift */; };
 		B658E3271F595DA2008CECD2 /* OrderMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658E3251F595DA2008CECD2 /* OrderMenuTableViewCell.swift */; };
@@ -54,6 +58,10 @@
 		B617D0AA1EE458800047F52A /* Menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Menu.plist; sourceTree = "<group>"; };
 		B617D0AC1EE459630047F52A /* menuImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menuImage.jpg; sourceTree = "<group>"; };
 		B617D0B01EE4C0AA0047F52A /* DatabaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAPI.swift; sourceTree = "<group>"; };
+		B6380A291FFE40B300844FA5 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
+		B6380A2A1FFE40B300844FA5 /* CheckViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckViewController.xib; sourceTree = "<group>"; };
+		B6380A2D1FFE50AE00844FA5 /* CheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTableViewCell.swift; sourceTree = "<group>"; };
+		B6380A2E1FFE50AE00844FA5 /* CheckTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckTableViewCell.xib; sourceTree = "<group>"; };
 		B63F4CAE1EF6D4BB00758F5F /* OrderTableNumbeSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableNumbeSectionView.swift; sourceTree = "<group>"; };
 		B63F4CB01EF6D4BB00758F5F /* TimeFormate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormate.swift; sourceTree = "<group>"; };
 		B658E3251F595DA2008CECD2 /* OrderMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -194,6 +202,8 @@
 				B63F4CAE1EF6D4BB00758F5F /* OrderTableNumbeSectionView.swift */,
 				B66D5B9C1EF5B3930086707A /* OrderTableNumberController.swift */,
 				B66D5B8D1EF59F2A0086707A /* OrderMenuViewController.swift */,
+				B6380A291FFE40B300844FA5 /* CheckViewController.swift */,
+				B6380A2A1FFE40B300844FA5 /* CheckViewController.xib */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -218,6 +228,8 @@
 			children = (
 				B658E3251F595DA2008CECD2 /* OrderMenuTableViewCell.swift */,
 				B658E3261F595DA2008CECD2 /* OrderMenuTableViewCell.xib */,
+				B6380A2D1FFE50AE00844FA5 /* CheckTableViewCell.swift */,
+				B6380A2E1FFE50AE00844FA5 /* CheckTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -305,10 +317,12 @@
 			files = (
 				B658E3281F595DA2008CECD2 /* OrderMenuTableViewCell.xib in Resources */,
 				B66D5BAC1EF5DB020086707A /* FloorTables.plist in Resources */,
+				B6380A301FFE50AE00844FA5 /* CheckTableViewCell.xib in Resources */,
 				B617D0AD1EE459630047F52A /* menuImage.jpg in Resources */,
 				B6074D8C1EE389810082DD8A /* LaunchScreen.storyboard in Resources */,
 				B617D0AB1EE458800047F52A /* Menu.plist in Resources */,
 				B6074D941EE38F890082DD8A /* GoogleService-Info.plist in Resources */,
+				B6380A2C1FFE40B300844FA5 /* CheckViewController.xib in Resources */,
 				B6074D891EE389810082DD8A /* Assets.xcassets in Resources */,
 				B6074D841EE389810082DD8A /* Main.storyboard in Resources */,
 			);
@@ -389,7 +403,9 @@
 				B6DD2CA21F56A8BE00EFA322 /* MealStatus.swift in Sources */,
 				B66D5B951EF59F2A0086707A /* SettingController.swift in Sources */,
 				B6074D871EE389810082DD8A /* BoardGameForest.xcdatamodeld in Sources */,
+				B6380A2F1FFE50AE00844FA5 /* CheckTableViewCell.swift in Sources */,
 				B658E3271F595DA2008CECD2 /* OrderMenuTableViewCell.swift in Sources */,
+				B6380A2B1FFE40B300844FA5 /* CheckViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
