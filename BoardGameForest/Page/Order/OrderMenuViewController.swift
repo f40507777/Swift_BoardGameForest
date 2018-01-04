@@ -14,9 +14,7 @@ class OrderMenuViewController: UITableViewController {
     
     lazy var meals = MenuParser().mealArray
     
-    var orderMealsArray: [MealStatus] = []
-    
-    var mealList = MealList()
+    var orderList = MealList()
     
     var table: Table
     
@@ -62,14 +60,14 @@ class OrderMenuViewController: UITableViewController {
 
         let meal:MealStatus = meals[indexPath.section][indexPath.row]
         cell.nameLabel!.text = meal.name
-        cell.count = mealList.count(mealStatus: meal)
+        cell.count = orderList.count(mealStatus: meal)
         cell.addButtonTapAction = {
-            self.mealList.add(mealStatus: meal)
+            self.orderList.add(mealStatus: meal)
             self.tableView.reloadData()
 
         }
         cell.removeButtonTapAction = {
-            self.mealList.remove(mealStatus: meal)
+            self.orderList.remove(mealStatus: meal)
             self.tableView.reloadData()
         }
         
@@ -83,21 +81,41 @@ class OrderMenuViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let meal:MealStatus = meals[indexPath.section][indexPath.row]
-        mealList.add(mealStatus: meal)
+        orderList.add(mealStatus: meal)
         self.tableView.reloadData()
     }
     
     @objc func sendOrder() {
-        if orderMealsArray.count > 0 {
-            let order = Order(meals:orderMealsArray ,table:table.tableNumber!)
+        
+        if isEmptyList() || isOverSet() {
+            return
+        }
+        
+        if orderList.array.count > 0 {
+            let order = Order(meals:orderList.array ,table:table.tableNumber!)
             databaseAPI.updateOrder(order: order)
             navigationController?.popViewController(animated: true)
         }
+    }
+    
+    func isEmptyList() -> Bool {
+        if orderList.array.count == 0 {
+            let noItemAlert = UIAlertController(title: "沒有餐點", message: "請至少點選一份餐點", preferredStyle: UIAlertControllerStyle.alert)
+            noItemAlert.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
+            present(noItemAlert, animated: true, completion: nil)
+        }
         
-        let noItemAlert = UIAlertController(title: "沒有餐點", message: "請至少點選一份餐點", preferredStyle: UIAlertControllerStyle.alert)
-        noItemAlert.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
-        present(noItemAlert, animated: true, completion: nil)
-
+        return orderList.array.count == 0
+    }
+    
+    func isOverSet() -> Bool {
+        if orderList.isOverSet() {
+            let overSetAlert = UIAlertController(title: "套餐過多", message: "請確認是否有足夠的套餐", preferredStyle: UIAlertControllerStyle.alert)
+            overSetAlert.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
+            present(overSetAlert, animated: true, completion: nil)
+        }
+        
+        return orderList.isOverSet()
     }
     
 }

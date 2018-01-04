@@ -13,6 +13,7 @@ enum MealType: Int {
     case Beverage
     case Dessert
     case MainCourse
+    case Set
 }
 
 class MealStatus: Mappable {

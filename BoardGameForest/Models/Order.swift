@@ -39,7 +39,7 @@ class Order: Mappable {
         status = .未出餐
         tableNumber = table.rawValue
         mealStatusList = meals
-        totalAmount = calculationTotalAmount() - comboDiscount()
+        totalAmount = calculationTotalAmount()
     }
     
     func mapping(map: Map) {
@@ -52,14 +52,7 @@ class Order: Mappable {
     }
     
     private func calculationTotalAmount() -> Int {
+
         return mealStatusList.map({$0.price}).reduce(0){($0 + $1)}
     }
-    
-    private func comboDiscount() -> Int {
-        let dessertMealCount = mealStatusList.filter({$0.type == MealType.Dessert.rawValue}).count
-        let notDessertMealCount = mealStatusList.count - dessertMealCount
-        
-        return min(dessertMealCount, notDessertMealCount) * 20
-    }
-    
 }
