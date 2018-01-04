@@ -9,32 +9,29 @@
 import UIKit
 
 class MealList: NSObject {
-
-    var mealDictionary: [String : Int] = [:]
     
+    var array: [MealStatus] = []
+
     func add(mealStatus: MealStatus) {
-        if let count = mealDictionary[mealStatus.name!] {
-            mealDictionary[mealStatus.name!] = count + 1
-        } else {
-            mealDictionary[mealStatus.name!] = 1
-        }
+        self.array.append(mealStatus)
     }
     
     func remove(mealStatus: MealStatus) {
-        if let count = mealDictionary[mealStatus.name!] {
-            if count > 0 {
-                mealDictionary[mealStatus.name!] = count - 1
-            }
-        } else {
-            mealDictionary[mealStatus.name!] = 0
+        
+        let mealsNameArray = self.array.map { (mealStatus) -> String in
+            return mealStatus.name!
+        }
+        
+        if let index = mealsNameArray.index(of: mealStatus.name!) {
+            self.array.remove(at: index)
         }
     }
     
     func count(mealStatus: MealStatus) -> Int {
-        if let count = mealDictionary[mealStatus.name!] {
-            return count
+        let filterArray = self.array.filter { (meal) -> Bool in
+            meal.name == mealStatus.name
         }
         
-        return 0
+        return filterArray.count
     }
 }

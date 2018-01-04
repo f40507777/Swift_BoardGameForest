@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,34 +25,40 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DjZ-P2-FEH">
-                        <rect key="frame" x="129" y="0.0" width="98" height="55"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7IS-ks-vnK">
+                        <rect key="frame" x="139" y="0.0" width="104" height="55"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8O-Np-Kyk">
-                                <rect key="frame" x="0.0" y="0.0" width="24" height="55"/>
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="54.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="xKG-O5-lJX"/>
+                                    <constraint firstAttribute="width" constant="40" id="Qnt-g7-z6K"/>
                                 </constraints>
-                                <state key="normal" image="ic_remove"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="-">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="clickSubtractionButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BQl-s5-fre"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f9M-fo-fAF">
-                                <rect key="frame" x="24" y="0.0" width="50" height="55"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWz-Dc-V4j">
+                                <rect key="frame" x="40" y="0.0" width="24" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="7N9-qD-GzN"/>
+                                    <constraint firstAttribute="width" constant="24" id="H6r-Bb-qQH"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zE1-Im-kpV">
-                                <rect key="frame" x="74" y="0.0" width="24" height="55"/>
+                                <rect key="frame" x="64" y="0.0" width="40" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="C73-Vz-OVQ"/>
+                                    <constraint firstAttribute="width" constant="40" id="Q6B-2v-QY4"/>
                                 </constraints>
-                                <state key="normal" image="ic_add"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="clickAdditionButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Fm0-4J-W1T"/>
                                 </connections>
@@ -60,16 +66,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="f9M-fo-fAF" firstAttribute="leading" secondItem="h8O-Np-Kyk" secondAttribute="trailing" id="AYO-s2-u5M"/>
-                            <constraint firstItem="zE1-Im-kpV" firstAttribute="top" secondItem="DjZ-P2-FEH" secondAttribute="top" id="FlC-ZL-nSp"/>
-                            <constraint firstAttribute="trailing" secondItem="zE1-Im-kpV" secondAttribute="trailing" id="JcG-uE-dkc"/>
-                            <constraint firstAttribute="bottom" secondItem="zE1-Im-kpV" secondAttribute="bottom" id="JrS-gn-LKC"/>
-                            <constraint firstItem="h8O-Np-Kyk" firstAttribute="leading" secondItem="DjZ-P2-FEH" secondAttribute="leading" id="bF2-s2-xxM"/>
-                            <constraint firstItem="f9M-fo-fAF" firstAttribute="top" secondItem="DjZ-P2-FEH" secondAttribute="top" id="haz-uw-zkt"/>
-                            <constraint firstAttribute="bottom" secondItem="f9M-fo-fAF" secondAttribute="bottom" id="kDS-7y-cTA"/>
-                            <constraint firstAttribute="bottom" secondItem="h8O-Np-Kyk" secondAttribute="bottom" id="oEp-cq-cTG"/>
-                            <constraint firstItem="h8O-Np-Kyk" firstAttribute="top" secondItem="DjZ-P2-FEH" secondAttribute="top" id="sKx-Hh-UXC"/>
-                            <constraint firstItem="zE1-Im-kpV" firstAttribute="leading" secondItem="f9M-fo-fAF" secondAttribute="trailing" id="xxl-9y-tls"/>
+                            <constraint firstItem="h8O-Np-Kyk" firstAttribute="top" secondItem="7IS-ks-vnK" secondAttribute="top" id="5it-ls-2y1"/>
+                            <constraint firstItem="IWz-Dc-V4j" firstAttribute="top" secondItem="7IS-ks-vnK" secondAttribute="top" id="7QP-04-uiX"/>
+                            <constraint firstItem="IWz-Dc-V4j" firstAttribute="leading" secondItem="h8O-Np-Kyk" secondAttribute="trailing" id="9gP-4C-ogK"/>
+                            <constraint firstAttribute="trailing" secondItem="zE1-Im-kpV" secondAttribute="trailing" id="MpJ-78-DnN"/>
+                            <constraint firstItem="zE1-Im-kpV" firstAttribute="leading" secondItem="IWz-Dc-V4j" secondAttribute="trailing" id="SQ6-Yc-ikd"/>
+                            <constraint firstAttribute="bottom" secondItem="h8O-Np-Kyk" secondAttribute="bottom" id="WWD-SC-OBT"/>
+                            <constraint firstAttribute="bottom" secondItem="IWz-Dc-V4j" secondAttribute="bottom" id="byf-7N-xWB"/>
+                            <constraint firstItem="h8O-Np-Kyk" firstAttribute="leading" secondItem="7IS-ks-vnK" secondAttribute="leading" id="nxo-G0-xnS"/>
+                            <constraint firstAttribute="bottom" secondItem="h8O-Np-Kyk" secondAttribute="bottom" id="oBo-00-fum"/>
+                            <constraint firstAttribute="bottom" secondItem="zE1-Im-kpV" secondAttribute="bottom" id="rFb-zl-FCY"/>
+                            <constraint firstItem="zE1-Im-kpV" firstAttribute="top" secondItem="7IS-ks-vnK" secondAttribute="top" id="xqn-Kn-1Rq"/>
+                            <constraint firstItem="h8O-Np-Kyk" firstAttribute="top" secondItem="7IS-ks-vnK" secondAttribute="top" id="zkE-kc-fyp"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -77,21 +85,18 @@
                     <constraint firstItem="4Xv-SA-nXe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="4RS-xJ-eXV"/>
                     <constraint firstItem="4Xv-SA-nXe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="IX2-xO-5XX"/>
                     <constraint firstAttribute="bottom" secondItem="4Xv-SA-nXe" secondAttribute="bottom" constant="20" id="O0B-eV-wea"/>
-                    <constraint firstItem="DjZ-P2-FEH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="WiN-ms-say"/>
-                    <constraint firstAttribute="bottom" secondItem="DjZ-P2-FEH" secondAttribute="bottom" id="h4O-dW-n7u"/>
-                    <constraint firstAttribute="trailing" secondItem="DjZ-P2-FEH" secondAttribute="trailing" constant="16" id="sL4-Of-5kd"/>
+                    <constraint firstAttribute="bottom" secondItem="7IS-ks-vnK" secondAttribute="bottom" id="RTf-Vi-sP2"/>
+                    <constraint firstItem="7IS-ks-vnK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hN2-iY-hLD"/>
+                    <constraint firstAttribute="trailing" secondItem="7IS-ks-vnK" secondAttribute="trailing" id="iJD-87-dvo"/>
                 </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <viewLayoutGuide key="safeArea" id="qdO-Mt-nEc"/>
             <connections>
-                <outlet property="countTextField" destination="f9M-fo-fAF" id="nVl-G2-qcW"/>
+                <outlet property="controlView" destination="7IS-ks-vnK" id="Zb1-Od-S78"/>
+                <outlet property="countLabel" destination="IWz-Dc-V4j" id="BOf-dn-aok"/>
                 <outlet property="nameLabel" destination="4Xv-SA-nXe" id="4bF-yf-p5q"/>
             </connections>
             <point key="canvasLocation" x="8.5" y="88.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="ic_add" width="24" height="24"/>
-        <image name="ic_remove" width="24" height="24"/>
-    </resources>
 </document>

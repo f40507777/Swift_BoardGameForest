@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrderMenuViewController: UITableViewController, OrderMenuCellDelegate {
+class OrderMenuViewController: UITableViewController {
 
     lazy var databaseAPI = DatabaseAPI()
     
@@ -62,7 +62,6 @@ class OrderMenuViewController: UITableViewController, OrderMenuCellDelegate {
 
         let meal:MealStatus = meals[indexPath.section][indexPath.row]
         cell.nameLabel!.text = meal.name
-        cell.delegate = self
         cell.count = mealList.count(mealStatus: meal)
         cell.addButtonTapAction = {
             self.mealList.add(mealStatus: meal)
@@ -83,11 +82,12 @@ class OrderMenuViewController: UITableViewController, OrderMenuCellDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let meal = meals[indexPath.section][indexPath.row]
-        orderMealsArray.append(meal)
+        let meal:MealStatus = meals[indexPath.section][indexPath.row]
+        mealList.add(mealStatus: meal)
+        self.tableView.reloadData()
     }
     
-    func sendOrder() {
+    @objc func sendOrder() {
         if orderMealsArray.count > 0 {
             let order = Order(meals:orderMealsArray ,table:table.tableNumber!)
             databaseAPI.updateOrder(order: order)
@@ -99,15 +99,5 @@ class OrderMenuViewController: UITableViewController, OrderMenuCellDelegate {
         present(noItemAlert, animated: true, completion: nil)
 
     }
-    
-    // MARK: OrderMenuCellDelegate
-    func additionCountEvent(mealName: String) {
-        
-    }
-    
-    func subtractionCountEvent(mealName: String) {
-        
-    }
-    
     
 }

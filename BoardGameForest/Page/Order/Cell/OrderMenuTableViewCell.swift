@@ -8,21 +8,14 @@
 
 import UIKit
 
-protocol OrderMenuCellDelegate: class {
-    
-    func additionCountEvent(mealName: String)
-    
-    func subtractionCountEvent(mealName: String)
-}
-
 class OrderMenuTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
-        
-    @IBOutlet weak var countTextField: UITextField!
     
-    weak var delegate: OrderMenuCellDelegate?
+    @IBOutlet weak var countLabel: UILabel!
 
+    @IBOutlet weak var controlView: UIView!
+    
     private var _count: Int = 0
     
     var count:Int {
@@ -31,7 +24,8 @@ class OrderMenuTableViewCell: UITableViewCell {
         }
         set {
             _count = newValue < 0 ? 0 : newValue
-            countTextField.text = String(_count);
+            controlView.isHidden = _count == 0
+            countLabel.text = String(_count)
         }
     }
     
