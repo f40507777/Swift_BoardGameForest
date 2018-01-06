@@ -23,7 +23,7 @@ class SettingController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -31,14 +31,24 @@ class SettingController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ??
             UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: identifier)
         
-        cell.textLabel?.text = "clear database"
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "clear database"
+        } else if indexPath.row == 1 {
+            cell.textLabel?.text = "bar chart"
+        }
+        
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        databaseAPI.clearAllData()
+        if indexPath.row == 0 {
+            databaseAPI.clearAllData()
+        } else if indexPath.row == 1 {
+            let chartViewController = BarChartViewController()
+            navigationController?.pushViewController(chartViewController, animated: true)
+        }
     }
     
 
