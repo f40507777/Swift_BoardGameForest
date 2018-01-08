@@ -14,18 +14,23 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var totalAmountLabel: UILabel!
     
+    lazy var fullmMeals = MenuParser().mealArray
+
     lazy var databaseAPI = DatabaseAPI()
 
     var mealStatusList: MealList!
     
     var order: Order!
     
-    var orderDictionary: [String : Int] = [:]
+    var orderMealNameArray: Array<String>!
 
     init(meals: MealList, tableNumber: TableNumber) {
-        self.mealStatusList = meals
-        self.order = Order(meals:meals.array ,table:tableNumber)
         super.init(nibName: nil, bundle: nil)
+
+        self.mealStatusList = meals
+        self.orderMealNameArray = Array(Set(meals.array.map({$0.name!})))
+        self.order = Order(meals:meals.array ,table:tableNumber)
+        self.hidesBottomBarWhenPushed = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -37,7 +42,6 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         initTableView()
         initUI()
-        initData()
     }
 
     func initTableView() {
@@ -45,17 +49,7 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CheckTableViewCell", bundle: nil), forCellReuseIdentifier: "CheckTableViewCell")
     }
-    
-    func initData() {
-        for mealStatus in mealStatusList.array {
-            if let keyExists = orderDictionary[mealStatus.name!] {
-                orderDictionary[mealStatus.name!] = keyExists + 1
-            } else {
-                orderDictionary[mealStatus.name!] = 1
-            }
-        }
-    }
-    
+
     func initUI() {
         self.totalAmountLabel.text = String(order.totalAmount)
     }
@@ -65,14 +59,16 @@ class CheckViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderDictionary.count
+        return orderMealNameArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "CheckTableViewCell") as! CheckTableViewCell
-        let mealName:String = Array(orderDictionary.keys)[indexPath.row]
-        let amount:Int = Array(orderDictionary.values)[indexPath.row]
+        let mealName:String = orderMealNameArray[indexPath.row]
+        let count:Int = mealStatusList.array.filter({$0.name! == mealName}).count
+        let amount:Int = mealStatusList.array.filter({$0.name! == mealName}).map({$0.price}).reduce(0){($0 + $1)}
         cell.nameLabel.text = mealName
+        cell.countLabel.text = "x " + String(count)
         cell.amountLabel.text = String(amount)
         
         return cell

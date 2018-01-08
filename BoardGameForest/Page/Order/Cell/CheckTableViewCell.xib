@@ -26,25 +26,38 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZy-YP-AbY">
-                        <rect key="frame" x="293.5" y="11" width="10.5" height="22"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="160" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JN3-M8-JeL">
+                        <rect key="frame" x="224" y="11" width="80" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="6D0-76-Ipy"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZy-YP-AbY">
+                        <rect key="frame" x="205" y="11" width="19" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="sZy-YP-AbY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="BCT-aV-tP0"/>
                     <constraint firstItem="HA5-ig-Z4k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Bpj-Gu-NxK"/>
-                    <constraint firstItem="sZy-YP-AbY" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="IQK-Wt-gf2"/>
+                    <constraint firstItem="JN3-M8-JeL" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="EF3-Qs-bAi"/>
+                    <constraint firstItem="JN3-M8-JeL" firstAttribute="leading" secondItem="sZy-YP-AbY" secondAttribute="trailing" id="N9s-bj-jRk"/>
+                    <constraint firstItem="sZy-YP-AbY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="PqA-nh-5BC"/>
                     <constraint firstItem="HA5-ig-Z4k" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="UKk-TJ-NGc"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="sZy-YP-AbY" secondAttribute="bottom" id="lm6-bN-1a0"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="sZy-YP-AbY" secondAttribute="bottom" id="Xn8-WB-Xdt"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="JN3-M8-JeL" secondAttribute="bottom" id="jTE-8D-yQl"/>
                     <constraint firstItem="HA5-ig-Z4k" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="qhx-Dw-sXw"/>
+                    <constraint firstItem="JN3-M8-JeL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="xkq-cd-FhO"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="amountLabel" destination="sZy-YP-AbY" id="1no-k6-lEn"/>
+                <outlet property="amountLabel" destination="JN3-M8-JeL" id="W88-Ge-Zek"/>
+                <outlet property="countLabel" destination="sZy-YP-AbY" id="vXm-YI-5rd"/>
                 <outlet property="nameLabel" destination="HA5-ig-Z4k" id="x1d-dW-aBh"/>
             </connections>
         </tableViewCell>

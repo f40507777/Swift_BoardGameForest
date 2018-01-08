@@ -12,6 +12,8 @@ class CheckTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var countLabel: UILabel!
+    
     @IBOutlet weak var amountLabel: UILabel!
     
     override func awakeFromNib() {

@@ -91,6 +91,7 @@ class OrderMenuViewController: UITableViewController {
         if orderList.array.count > 0 {
             let checkViewController = CheckViewController(meals: orderList, tableNumber: table.tableNumber!)
             navigationController?.pushViewController(checkViewController, animated: true)
+//            present(checkViewController, animated: true, completion: nil)
         }
     }
     
