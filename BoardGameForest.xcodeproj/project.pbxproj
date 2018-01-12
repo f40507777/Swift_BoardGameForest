@@ -17,6 +17,8 @@
 		B617D0AB1EE458800047F52A /* Menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = B617D0AA1EE458800047F52A /* Menu.plist */; };
 		B617D0AD1EE459630047F52A /* menuImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B617D0AC1EE459630047F52A /* menuImage.jpg */; };
 		B617D0B11EE4C0AA0047F52A /* DatabaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B617D0B01EE4C0AA0047F52A /* DatabaseAPI.swift */; };
+		B62C4EC9200908C400109ED6 /* BGBarChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62C4EC8200908C400109ED6 /* BGBarChartDataSet.swift */; };
+		B62C4ECC2009094700109ED6 /* BGBarChartCovert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62C4ECB2009094700109ED6 /* BGBarChartCovert.swift */; };
 		B6380A2B1FFE40B300844FA5 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6380A291FFE40B300844FA5 /* CheckViewController.swift */; };
 		B6380A2C1FFE40B300844FA5 /* CheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6380A2A1FFE40B300844FA5 /* CheckViewController.xib */; };
 		B6380A2F1FFE50AE00844FA5 /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6380A2D1FFE50AE00844FA5 /* CheckTableViewCell.swift */; };
@@ -27,7 +29,6 @@
 		B658E3281F595DA2008CECD2 /* OrderMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B658E3261F595DA2008CECD2 /* OrderMenuTableViewCell.xib */; };
 		B659C9C41EE6884E008A425E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B659C9C31EE6884E008A425E /* TabBarController.swift */; };
 		B667F87F2002515E00CCD5AD /* BGBarChartEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667F87E2002515E00CCD5AD /* BGBarChartEntry.swift */; };
-		B667F881200255D300CCD5AD /* BGBarChartAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667F880200255D300CCD5AD /* BGBarChartAdapter.swift */; };
 		B66D5B921EF59F2A0086707A /* OrderMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D5B8D1EF59F2A0086707A /* OrderMenuViewController.swift */; };
 		B66D5B951EF59F2A0086707A /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D5B901EF59F2A0086707A /* SettingController.swift */; };
 		B66D5B9D1EF5B3930086707A /* OrderTableNumberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D5B9B1EF5B3930086707A /* OrderTableNumberCollectionViewCell.swift */; };
@@ -62,6 +63,8 @@
 		B617D0AA1EE458800047F52A /* Menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Menu.plist; sourceTree = "<group>"; };
 		B617D0AC1EE459630047F52A /* menuImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menuImage.jpg; sourceTree = "<group>"; };
 		B617D0B01EE4C0AA0047F52A /* DatabaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAPI.swift; sourceTree = "<group>"; };
+		B62C4EC8200908C400109ED6 /* BGBarChartDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGBarChartDataSet.swift; sourceTree = "<group>"; };
+		B62C4ECB2009094700109ED6 /* BGBarChartCovert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGBarChartCovert.swift; sourceTree = "<group>"; };
 		B6380A291FFE40B300844FA5 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
 		B6380A2A1FFE40B300844FA5 /* CheckViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckViewController.xib; sourceTree = "<group>"; };
 		B6380A2D1FFE50AE00844FA5 /* CheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTableViewCell.swift; sourceTree = "<group>"; };
@@ -72,7 +75,6 @@
 		B658E3261F595DA2008CECD2 /* OrderMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderMenuTableViewCell.xib; sourceTree = "<group>"; };
 		B659C9C31EE6884E008A425E /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B667F87E2002515E00CCD5AD /* BGBarChartEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGBarChartEntry.swift; sourceTree = "<group>"; };
-		B667F880200255D300CCD5AD /* BGBarChartAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGBarChartAdapter.swift; sourceTree = "<group>"; };
 		B66D5B8D1EF59F2A0086707A /* OrderMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderMenuViewController.swift; sourceTree = "<group>"; };
 		B66D5B901EF59F2A0086707A /* SettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		B66D5B9B1EF5B3930086707A /* OrderTableNumberCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableNumberCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -172,8 +174,7 @@
 		B607F5E91F56A4B300337F79 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B667F87E2002515E00CCD5AD /* BGBarChartEntry.swift */,
-				B667F880200255D300CCD5AD /* BGBarChartAdapter.swift */,
+				B62C4ECA200908C800109ED6 /* BGBarChartModel */,
 				B6E0DC361F592A4B00944F96 /* OrderList.swift */,
 				B6EB17FD1FC7FAF10055E167 /* MealList.swift */,
 				B6DD2C9D1F56A79A00EFA322 /* Order.swift */,
@@ -226,6 +227,16 @@
 				B6EACB572000F5E7007A298C /* BarChartViewController.xib */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		B62C4ECA200908C800109ED6 /* BGBarChartModel */ = {
+			isa = PBXGroup;
+			children = (
+				B667F87E2002515E00CCD5AD /* BGBarChartEntry.swift */,
+				B62C4EC8200908C400109ED6 /* BGBarChartDataSet.swift */,
+				B62C4ECB2009094700109ED6 /* BGBarChartCovert.swift */,
+			);
+			path = BGBarChartModel;
 			sourceTree = "<group>";
 		};
 		B66D5B8B1EF59F2A0086707A /* MainTabController */ = {
@@ -410,11 +421,12 @@
 			files = (
 				B66D5B9E1EF5B3930086707A /* OrderTableNumberController.swift in Sources */,
 				B6DD2C9E1F56A79A00EFA322 /* Order.swift in Sources */,
+				B62C4EC9200908C400109ED6 /* BGBarChartDataSet.swift in Sources */,
 				B6EB17FE1FC7FAF10055E167 /* MealList.swift in Sources */,
-				B667F881200255D300CCD5AD /* BGBarChartAdapter.swift in Sources */,
 				B66D5B921EF59F2A0086707A /* OrderMenuViewController.swift in Sources */,
 				B6E0DC391F59301B00944F96 /* OrderHistoryController.swift in Sources */,
 				B6EACB582000F5E7007A298C /* BarChartViewController.swift in Sources */,
+				B62C4ECC2009094700109ED6 /* BGBarChartCovert.swift in Sources */,
 				B66D5BAE1EF5DF100086707A /* TablesData.swift in Sources */,
 				B63F4CAF1EF6D4BB00758F5F /* OrderTableNumbeSectionView.swift in Sources */,
 				B63F4CB11EF6D4BB00758F5F /* TimeFormate.swift in Sources */,
