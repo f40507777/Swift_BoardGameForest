@@ -25,6 +25,8 @@
 		B6380A301FFE50AE00844FA5 /* CheckTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6380A2E1FFE50AE00844FA5 /* CheckTableViewCell.xib */; };
 		B63F4CAF1EF6D4BB00758F5F /* OrderTableNumbeSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F4CAE1EF6D4BB00758F5F /* OrderTableNumbeSectionView.swift */; };
 		B63F4CB11EF6D4BB00758F5F /* TimeFormate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F4CB01EF6D4BB00758F5F /* TimeFormate.swift */; };
+		B6526174200B72660062336D /* DataAnalysisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6526173200B72660062336D /* DataAnalysisTableViewController.swift */; };
+		B6526176200B87EB0062336D /* AllItemSaleChartConvertData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6526175200B87EB0062336D /* AllItemSaleChartConvertData.swift */; };
 		B658E3271F595DA2008CECD2 /* OrderMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658E3251F595DA2008CECD2 /* OrderMenuTableViewCell.swift */; };
 		B658E3281F595DA2008CECD2 /* OrderMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B658E3261F595DA2008CECD2 /* OrderMenuTableViewCell.xib */; };
 		B659C9C41EE6884E008A425E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B659C9C31EE6884E008A425E /* TabBarController.swift */; };
@@ -71,6 +73,8 @@
 		B6380A2E1FFE50AE00844FA5 /* CheckTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckTableViewCell.xib; sourceTree = "<group>"; };
 		B63F4CAE1EF6D4BB00758F5F /* OrderTableNumbeSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableNumbeSectionView.swift; sourceTree = "<group>"; };
 		B63F4CB01EF6D4BB00758F5F /* TimeFormate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFormate.swift; sourceTree = "<group>"; };
+		B6526173200B72660062336D /* DataAnalysisTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAnalysisTableViewController.swift; sourceTree = "<group>"; };
+		B6526175200B87EB0062336D /* AllItemSaleChartConvertData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllItemSaleChartConvertData.swift; sourceTree = "<group>"; };
 		B658E3251F595DA2008CECD2 /* OrderMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMenuTableViewCell.swift; sourceTree = "<group>"; };
 		B658E3261F595DA2008CECD2 /* OrderMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderMenuTableViewCell.xib; sourceTree = "<group>"; };
 		B659C9C31EE6884E008A425E /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -223,7 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				B66D5B901EF59F2A0086707A /* SettingController.swift */,
-				B6EACB562000F5E7007A298C /* BarChartViewController.swift */,
+				B6526172200B72230062336D /* Clear Database */,
+				B6526171200B72070062336D /* Data Analysis */,
 				B6EACB572000F5E7007A298C /* BarChartViewController.xib */,
 			);
 			path = Setting;
@@ -237,6 +242,23 @@
 				B62C4ECB2009094700109ED6 /* BGBarChartConvert.swift */,
 			);
 			path = BGBarChartModel;
+			sourceTree = "<group>";
+		};
+		B6526171200B72070062336D /* Data Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				B6EACB562000F5E7007A298C /* BarChartViewController.swift */,
+				B6526173200B72660062336D /* DataAnalysisTableViewController.swift */,
+				B6526175200B87EB0062336D /* AllItemSaleChartConvertData.swift */,
+			);
+			path = "Data Analysis";
+			sourceTree = "<group>";
+		};
+		B6526172200B72230062336D /* Clear Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Clear Database";
 			sourceTree = "<group>";
 		};
 		B66D5B8B1EF59F2A0086707A /* MainTabController */ = {
@@ -424,6 +446,7 @@
 				B62C4EC9200908C400109ED6 /* BGBarChartDataSet.swift in Sources */,
 				B6EB17FE1FC7FAF10055E167 /* MealList.swift in Sources */,
 				B66D5B921EF59F2A0086707A /* OrderMenuViewController.swift in Sources */,
+				B6526174200B72660062336D /* DataAnalysisTableViewController.swift in Sources */,
 				B6E0DC391F59301B00944F96 /* OrderHistoryController.swift in Sources */,
 				B6EACB582000F5E7007A298C /* BarChartViewController.swift in Sources */,
 				B62C4ECC2009094700109ED6 /* BGBarChartConvert.swift in Sources */,
@@ -445,6 +468,7 @@
 				B6380A2F1FFE50AE00844FA5 /* CheckTableViewCell.swift in Sources */,
 				B667F87F2002515E00CCD5AD /* BGBarChartEntry.swift in Sources */,
 				B658E3271F595DA2008CECD2 /* OrderMenuTableViewCell.swift in Sources */,
+				B6526176200B87EB0062336D /* AllItemSaleChartConvertData.swift in Sources */,
 				B6380A2B1FFE40B300844FA5 /* CheckViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

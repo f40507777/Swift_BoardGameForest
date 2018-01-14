@@ -10,6 +10,13 @@ import UIKit
 
 class TimeFormate: NSObject {
 
+    func getNearlyMonthsTimeStamp(nearlyMonth: Int) -> TimeInterval {
+        let comp: DateComponents = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        let calculateDate = Calendar.current.date(byAdding: Calendar.Component.month, value: -nearlyMonth, to: Calendar.current.date(from: comp)!)
+        
+        return (calculateDate?.timeIntervalSince1970)!
+    }
+    
     func getTodayTimeStamp() -> TimeInterval {
         let comp: DateComponents = Calendar.current.dateComponents([.year, .month, .day], from: Date())
         let startOfDay = Calendar.current.date(from: comp)!

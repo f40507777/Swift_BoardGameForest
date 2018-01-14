@@ -63,6 +63,12 @@ class DatabaseAPI: NSObject {
         }
     }
     
+    func getOrderListByTimeRange(startTimeStamp: TimeInterval, endTimeStamp: TimeInterval, callback: @escaping (Array<Order>?, Error?) -> Void) {
+        databaseOrderPath.queryOrdered(byChild: DTCREATETIME).queryStarting(atValue: startTimeStamp).queryEnding(atValue: endTimeStamp).observe(DataEventType.value) { (snapshot) in
+            
+            callback(self.getOrderListBySnapshot(snapshot: snapshot), nil)
+        }
+    }
     // MARK: - Public
 
     func hackLogin() {
