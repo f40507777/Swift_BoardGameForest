@@ -13,53 +13,53 @@ class BarChartViewController: UIViewController {
 
     @IBOutlet weak var chartView: BarChartView!
     
-    var barChartData: BarChartData!
-
-    var testDataArray:[BGBarChartEntry] = []
+    var bgConvertData: BGBarChartConvert!
     
-//    init(barChartData: BarChartData) {
-//        self.barChartData = barChartData
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    init(bgConvertData: BGBarChartConvert) {
+        self.bgConvertData = bgConvertData
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let testDataArray = [BGBarChartDataSet(entryArray:[BGBarChartEntry.init(value: 30, name: "A"),
-                                                           BGBarChartEntry.init(value: 2, name: "B"),
-                                                           BGBarChartEntry.init(value: 44, name: "C"),
-                                                           BGBarChartEntry.init(value: 125, name: "D")], title: "甲"),
-                             
-                             BGBarChartDataSet(entryArray:[BGBarChartEntry.init(value: 99, name: "E"),
-                                                           BGBarChartEntry.init(value: 333, name: "F")], title: "乙"),
-                             
-                             BGBarChartDataSet(entryArray:[BGBarChartEntry.init(value: 1, name: "G"),
-                                                           BGBarChartEntry.init(value: 25, name: "H"),
-                                                           BGBarChartEntry.init(value: 83, name: "I")], title: "丙")]
-        
-        
-        
-        chartView.data = BGBarChartCovert(bgSetArray: testDataArray).barChartData
+        chartView.drawBarShadowEnabled = false
+        chartView.drawValueAboveBarEnabled = false
+        chartView.data = bgConvertData.barChartData
         chartView.animate(yAxisDuration: 3)
+        chartView.chartDescription?.text = ""
+        
         let xAxis = chartView.xAxis
         xAxis.labelPosition = .bottom
         xAxis.labelFont = .systemFont(ofSize: 10)
         xAxis.granularity = 1
         xAxis.labelCount = (chartView.data?.entryCount)!
-//        xAxis.valueFormatter = self
-
+        xAxis.valueFormatter = self
+        
+        let leftAxisFormatter = NumberFormatter()
+        leftAxisFormatter.minimumFractionDigits = 0
+        leftAxisFormatter.maximumFractionDigits = 1
+        leftAxisFormatter.positiveSuffix = bgConvertData.valueUnit == .DollarUnit ? " $" : ""
+        
+        let leftAxis = chartView.leftAxis
+        leftAxis.labelFont = .systemFont(ofSize: 10)
+        leftAxis.labelCount = 8
+        leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
+        leftAxis.labelPosition = .outsideChart
+        leftAxis.spaceTop = 0.15
+        leftAxis.axisMinimum = 0
     }
 
 }
 
-
-//extension BarChartViewController: IAxisValueFormatter {
-//    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-//        return ""
-//    }
-//}
+extension BarChartViewController: IAxisValueFormatter {
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        return bgConvertData.titleList[Int(value)]
+    }
+}
 

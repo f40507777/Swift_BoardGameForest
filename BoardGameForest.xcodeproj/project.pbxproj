@@ -18,7 +18,7 @@
 		B617D0AD1EE459630047F52A /* menuImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B617D0AC1EE459630047F52A /* menuImage.jpg */; };
 		B617D0B11EE4C0AA0047F52A /* DatabaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B617D0B01EE4C0AA0047F52A /* DatabaseAPI.swift */; };
 		B62C4EC9200908C400109ED6 /* BGBarChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62C4EC8200908C400109ED6 /* BGBarChartDataSet.swift */; };
-		B62C4ECC2009094700109ED6 /* BGBarChartCovert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62C4ECB2009094700109ED6 /* BGBarChartCovert.swift */; };
+		B62C4ECC2009094700109ED6 /* BGBarChartConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62C4ECB2009094700109ED6 /* BGBarChartConvert.swift */; };
 		B6380A2B1FFE40B300844FA5 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6380A291FFE40B300844FA5 /* CheckViewController.swift */; };
 		B6380A2C1FFE40B300844FA5 /* CheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6380A2A1FFE40B300844FA5 /* CheckViewController.xib */; };
 		B6380A2F1FFE50AE00844FA5 /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6380A2D1FFE50AE00844FA5 /* CheckTableViewCell.swift */; };
@@ -64,7 +64,7 @@
 		B617D0AC1EE459630047F52A /* menuImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menuImage.jpg; sourceTree = "<group>"; };
 		B617D0B01EE4C0AA0047F52A /* DatabaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAPI.swift; sourceTree = "<group>"; };
 		B62C4EC8200908C400109ED6 /* BGBarChartDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGBarChartDataSet.swift; sourceTree = "<group>"; };
-		B62C4ECB2009094700109ED6 /* BGBarChartCovert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGBarChartCovert.swift; sourceTree = "<group>"; };
+		B62C4ECB2009094700109ED6 /* BGBarChartConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGBarChartConvert.swift; sourceTree = "<group>"; };
 		B6380A291FFE40B300844FA5 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
 		B6380A2A1FFE40B300844FA5 /* CheckViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckViewController.xib; sourceTree = "<group>"; };
 		B6380A2D1FFE50AE00844FA5 /* CheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTableViewCell.swift; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 			children = (
 				B667F87E2002515E00CCD5AD /* BGBarChartEntry.swift */,
 				B62C4EC8200908C400109ED6 /* BGBarChartDataSet.swift */,
-				B62C4ECB2009094700109ED6 /* BGBarChartCovert.swift */,
+				B62C4ECB2009094700109ED6 /* BGBarChartConvert.swift */,
 			);
 			path = BGBarChartModel;
 			sourceTree = "<group>";
@@ -426,7 +426,7 @@
 				B66D5B921EF59F2A0086707A /* OrderMenuViewController.swift in Sources */,
 				B6E0DC391F59301B00944F96 /* OrderHistoryController.swift in Sources */,
 				B6EACB582000F5E7007A298C /* BarChartViewController.swift in Sources */,
-				B62C4ECC2009094700109ED6 /* BGBarChartCovert.swift in Sources */,
+				B62C4ECC2009094700109ED6 /* BGBarChartConvert.swift in Sources */,
 				B66D5BAE1EF5DF100086707A /* TablesData.swift in Sources */,
 				B63F4CAF1EF6D4BB00758F5F /* OrderTableNumbeSectionView.swift in Sources */,
 				B63F4CB11EF6D4BB00758F5F /* TimeFormate.swift in Sources */,

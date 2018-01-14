@@ -9,16 +9,26 @@
 import UIKit
 import Charts
 
-class BGBarChartCovert: NSObject {
+enum ValueUnit {
+    case DollarUnit
+    case NoneUnit
+}
+
+class BGBarChartConvert: NSObject {
     
     var barChartData = BarChartData()
     
+    var titleList:[String] = []
+    
+    var valueUnit:ValueUnit = ValueUnit.NoneUnit
+    
     var colors: [NSUIColor] = ChartColorTemplates.material() + ChartColorTemplates.colorful() + ChartColorTemplates.joyful() + ChartColorTemplates.pastel() + ChartColorTemplates.liberty()
     
-    init(bgSetArray: [BGBarChartDataSet]) {
+    init(bgSetArray: [BGBarChartDataSet],valueUnit: ValueUnit) {
         super.init()
 
         setupBarCharData()
+        self.valueUnit = valueUnit
         coverData(setArray: bgSetArray)
     }
     
@@ -34,9 +44,8 @@ class BGBarChartCovert: NSObject {
             var chartEntryArray: [BarChartDataEntry] = []
             for bgEntry in bgSet.chartEntryArray {
                 chartEntryArray.append(BarChartDataEntry(x: Double(indexCount),
-                                                         y: bgEntry.value,
-                                                         data: bgEntry.name as AnyObject))
-
+                                                         y: bgEntry.value))
+                titleList.append(bgEntry.name)
                 indexCount += 1
             }
             let barchartDataSet = BarChartDataSet(values: chartEntryArray, label: bgSet.title)
