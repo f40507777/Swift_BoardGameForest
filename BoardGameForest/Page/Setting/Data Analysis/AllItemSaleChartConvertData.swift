@@ -12,10 +12,20 @@ class AllItemSaleChartConvertData: NSObject, DatabaseAPIDelegate {
     
     lazy var databaseAPI = DatabaseAPI()
     
+    var nearlyDay:Int = 1
+    
+    
+    init(nearlyDay: Int) {
+        super.init()
+        
+        self.nearlyDay = nearlyDay
+    }
+    
     func asyncQuary(callback: @escaping (BGBarChartConvert?, Error?) -> Void) {
+        let startTime = nearlyDay == 1 ? TimeFormate().getTodayWorkTimeStamp() : TimeFormate().getNearlyDaysTimeStamp(day: nearlyDay)
         databaseAPI.delegate = self
-        databaseAPI.getOrderListByTimeRange(startTimeStamp: TimeFormate().getNearlyMonthsTimeStamp(nearlyMonth: 1),
-                                            endTimeStamp:  TimeFormate().getTommorrowTimeStamp()) { (orderList, error) in
+        databaseAPI.getOrderListByTimeRange(startTimeStamp: startTime,
+                                            endTimeStamp: TimeFormate().getCurrentTimeStamp()) { (orderList, error) in
                                                 callback(BGBarChartConvert(bgSetArray: self.processOrderList(originalOrderList: orderList!), valueUnit: .DollarUnit), nil)
 
         }
@@ -29,7 +39,7 @@ class AllItemSaleChartConvertData: NSObject, DatabaseAPIDelegate {
             }
         }
         
-        return BGBarChartFactory(itemIDArray: tempAllItemID, isHiddenEmptyItem: true).chartDataSet
+        return BGBarChartFactory(itemIDArray: tempAllItemID, isHiddenEmptyItem: false).chartDataSet
     }
     
     func dataChangeEvent(databaseOrders: Array<Order>) {}

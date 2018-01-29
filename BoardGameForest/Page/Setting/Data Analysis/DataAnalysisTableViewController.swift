@@ -10,10 +10,17 @@ import UIKit
 
 class DataAnalysisTableViewController: UITableViewController {
 
+    var titleArray:[String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Data Analysis"
+        titleArray = ["年度營收",
+                      "單月營收",
+                      "當天單品銷售",
+                      "單月單品銷售",
+                      "單年單品銷售"]
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -21,7 +28,7 @@ class DataAnalysisTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return titleArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -29,16 +36,7 @@ class DataAnalysisTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ??
             UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: identifier)
         
-        if indexPath.row == 0 {
-            cell.textLabel?.text = "年度營收"
-        } else if indexPath.row == 1 {
-            cell.textLabel?.text = "單月營收"
-        } else if indexPath.row == 2 {
-            cell.textLabel?.text = "單品單月銷售"
-        } else if indexPath.row == 3 {
-            cell.textLabel?.text = "單品單年銷售"
-        }
-        
+        cell.textLabel?.text = titleArray[indexPath.row]
         
         return cell
     }
@@ -78,13 +76,22 @@ class DataAnalysisTableViewController: UITableViewController {
             let chartViewController = BarChartViewController(bgConvertData: convert)
             navigationController?.pushViewController(chartViewController, animated: true)
         } else if indexPath.row == 2 {
-            AllItemSaleChartConvertData().asyncQuary(callback: { (convertData, error) in
+            AllItemSaleChartConvertData(nearlyDay: 1).asyncQuary(callback: { (convertData, error) in
                 let chartViewController = BarChartViewController(bgConvertData: convertData!)
                 self.navigationController?.pushViewController(chartViewController, animated: true)
             })
             
         } else if indexPath.row == 3 {
+            AllItemSaleChartConvertData(nearlyDay: 30).asyncQuary(callback: { (convertData, error) in
+                let chartViewController = BarChartViewController(bgConvertData: convertData!)
+                self.navigationController?.pushViewController(chartViewController, animated: true)
+            })
             
+        } else if indexPath.row == 4 {
+            AllItemSaleChartConvertData(nearlyDay: 365).asyncQuary(callback: { (convertData, error) in
+                let chartViewController = BarChartViewController(bgConvertData: convertData!)
+                self.navigationController?.pushViewController(chartViewController, animated: true)
+            })
         }
     }
 

@@ -30,7 +30,7 @@ class BGBarChartFactory: NSObject {
             for meal in mealType {
                 let itemCount = itemIDArray.filter{$0 == meal.itemID}.count
                 if (itemCount > 0 || !isHiddenEmptyItem) {
-                    entryArray.append(BGBarChartEntry.init(value: Double(itemCount), name: meal.name!))
+                    entryArray.append(BGBarChartEntry.init(value: Double(itemCount), name: meal.aka!))
                 }
             }
             if (entryArray.count > 0) {

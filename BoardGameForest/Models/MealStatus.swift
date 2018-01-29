@@ -36,6 +36,7 @@ class MealStatus: Mappable {
     var price: Int = 0
     var type: Int?
     var itemID: String?
+    var aka: String?
     
     init() {
 
