@@ -14,6 +14,19 @@ enum MealType: Int {
     case Dessert
     case MainCourse
     case Set
+    
+    func getName() -> String {
+        switch self {
+        case .Beverage:
+            return "飲料"
+        case .Dessert:
+            return "甜點"
+        case .MainCourse:
+            return "主餐"
+        case .Set:
+            return "套餐"
+        }
+    }
 }
 
 class MealStatus: Mappable {

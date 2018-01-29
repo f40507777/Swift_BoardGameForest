@@ -17,6 +17,7 @@
 		B617D0AB1EE458800047F52A /* Menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = B617D0AA1EE458800047F52A /* Menu.plist */; };
 		B617D0AD1EE459630047F52A /* menuImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B617D0AC1EE459630047F52A /* menuImage.jpg */; };
 		B617D0B11EE4C0AA0047F52A /* DatabaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B617D0B01EE4C0AA0047F52A /* DatabaseAPI.swift */; };
+		B61AE696201F6BF500B5FA80 /* BGBarChartFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61AE695201F6BF500B5FA80 /* BGBarChartFactory.swift */; };
 		B62C4EC9200908C400109ED6 /* BGBarChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62C4EC8200908C400109ED6 /* BGBarChartDataSet.swift */; };
 		B62C4ECC2009094700109ED6 /* BGBarChartConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62C4ECB2009094700109ED6 /* BGBarChartConvert.swift */; };
 		B6380A2B1FFE40B300844FA5 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6380A291FFE40B300844FA5 /* CheckViewController.swift */; };
@@ -65,6 +66,7 @@
 		B617D0AA1EE458800047F52A /* Menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Menu.plist; sourceTree = "<group>"; };
 		B617D0AC1EE459630047F52A /* menuImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menuImage.jpg; sourceTree = "<group>"; };
 		B617D0B01EE4C0AA0047F52A /* DatabaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAPI.swift; sourceTree = "<group>"; };
+		B61AE695201F6BF500B5FA80 /* BGBarChartFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGBarChartFactory.swift; sourceTree = "<group>"; };
 		B62C4EC8200908C400109ED6 /* BGBarChartDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGBarChartDataSet.swift; sourceTree = "<group>"; };
 		B62C4ECB2009094700109ED6 /* BGBarChartConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGBarChartConvert.swift; sourceTree = "<group>"; };
 		B6380A291FFE40B300844FA5 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				B607F5EA1F56A53F00337F79 /* Page */,
 				B607F5E91F56A4B300337F79 /* Models */,
 				B607F5E61F556F0C00337F79 /* API */,
+				B61AE694201F6BAE00B5FA80 /* Tool */,
 				B66D5B8B1EF59F2A0086707A /* MainTabController */,
 				B6074D7E1EE389810082DD8A /* AppDelegate.swift */,
 				B6074D821EE389810082DD8A /* Main.storyboard */,
@@ -232,6 +235,14 @@
 				B6EACB572000F5E7007A298C /* BarChartViewController.xib */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		B61AE694201F6BAE00B5FA80 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				B61AE695201F6BF500B5FA80 /* BGBarChartFactory.swift */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		B62C4ECA200908C800109ED6 /* BGBarChartModel */ = {
@@ -443,6 +454,7 @@
 			files = (
 				B66D5B9E1EF5B3930086707A /* OrderTableNumberController.swift in Sources */,
 				B6DD2C9E1F56A79A00EFA322 /* Order.swift in Sources */,
+				B61AE696201F6BF500B5FA80 /* BGBarChartFactory.swift in Sources */,
 				B62C4EC9200908C400109ED6 /* BGBarChartDataSet.swift in Sources */,
 				B6EB17FE1FC7FAF10055E167 /* MealList.swift in Sources */,
 				B66D5B921EF59F2A0086707A /* OrderMenuViewController.swift in Sources */,

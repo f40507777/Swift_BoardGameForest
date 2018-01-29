@@ -78,9 +78,6 @@ class DataAnalysisTableViewController: UITableViewController {
             let chartViewController = BarChartViewController(bgConvertData: convert)
             navigationController?.pushViewController(chartViewController, animated: true)
         } else if indexPath.row == 2 {
-            
-            
-                
             AllItemSaleChartConvertData().asyncQuary(callback: { (convertData, error) in
                 let chartViewController = BarChartViewController(bgConvertData: convertData!)
                 self.navigationController?.pushViewController(chartViewController, animated: true)

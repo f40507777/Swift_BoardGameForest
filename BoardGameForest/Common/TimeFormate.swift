@@ -24,6 +24,13 @@ class TimeFormate: NSObject {
         return startOfDay.timeIntervalSince1970
     }
     
+    func getTommorrowTimeStamp() -> TimeInterval {
+        let comp: DateComponents = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+        let startOfDay = Calendar.current.date(byAdding: Calendar.Component.day, value: 1, to: Calendar.current.date(from: comp)!)!
+        
+        return startOfDay.timeIntervalSince1970
+    }
+    
     func getPrettyTime(timeStamp: TimeInterval) -> String {
         let inFormatter = DateFormatter()
         inFormatter.locale = NSLocale(localeIdentifier: "zh_TW") as Locale!

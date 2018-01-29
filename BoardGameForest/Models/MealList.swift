@@ -36,14 +36,14 @@ class MealList: NSObject {
     }
     
     func isOverSet() -> Bool {
-        let beverageCourseCount = self.array.filter({$0.type == MealType.Beverage.rawValue}).count
+        let beverageCourseCount = self.array.filter({$0.type!.hashValue == MealType.Beverage.rawValue}).count
         let dessertCount = self.array.filter({
             //need to filter 炸物拼盤
-            $0.type == MealType.Dessert.rawValue &&
+            $0.type! == MealType.Dessert.rawValue &&
             $0.itemID != "d08"
         }).count
-        let mainCourseCount = self.array.filter({$0.type == MealType.MainCourse.rawValue}).count
-        let setCount = self.array.filter({$0.type == MealType.Set.rawValue}).count
+        let mainCourseCount = self.array.filter({$0.type!.hashValue == MealType.MainCourse.rawValue}).count
+        let setCount = self.array.filter({$0.type!.hashValue == MealType.Set.rawValue}).count
 
         let comboGroupCount = min(beverageCourseCount + mainCourseCount, dessertCount)
         

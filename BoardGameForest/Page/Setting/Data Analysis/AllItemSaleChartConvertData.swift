@@ -14,14 +14,11 @@ class AllItemSaleChartConvertData: NSObject, DatabaseAPIDelegate {
     
     func asyncQuary(callback: @escaping (BGBarChartConvert?, Error?) -> Void) {
         databaseAPI.delegate = self
-        databaseAPI.getTodayOrderList { (orderList, error) in
-            callback(BGBarChartConvert(bgSetArray: self.processOrderList(originalOrderList: orderList!), valueUnit: .DollarUnit), nil)
+        databaseAPI.getOrderListByTimeRange(startTimeStamp: TimeFormate().getNearlyMonthsTimeStamp(nearlyMonth: 1),
+                                            endTimeStamp:  TimeFormate().getTommorrowTimeStamp()) { (orderList, error) in
+                                                callback(BGBarChartConvert(bgSetArray: self.processOrderList(originalOrderList: orderList!), valueUnit: .DollarUnit), nil)
+
         }
-//        databaseAPI.getOrderListByTimeRange(startTimeStamp: TimeFormate().getTodayTimeStamp(),
-//                                            endTimeStamp:  TimeFormate().getTodayTimeStamp()) { (orderList, error) in
-//        
-//                                                
-//        }
     }
     
     private func processOrderList(originalOrderList: Array<Order>) -> [BGBarChartDataSet]{
@@ -32,21 +29,7 @@ class AllItemSaleChartConvertData: NSObject, DatabaseAPIDelegate {
             }
         }
         
-        print(tempAllItemID)
-        return []
-    }
-    
-    func setupData() -> [BGBarChartDataSet] {
-        return [BGBarChartDataSet(entryArray:[BGBarChartEntry.init(value: 30, name: "A"),
-                                              BGBarChartEntry.init(value: 125, name: "D")], title: "Q"),
-                
-                 BGBarChartDataSet(entryArray:[BGBarChartEntry.init(value: 99, name: "E"),
-                                               BGBarChartEntry.init(value: 333, name: "F")], title: "乙"),
-                 
-                 BGBarChartDataSet(entryArray:[BGBarChartEntry.init(value: 1, name: "G"),
-                                               BGBarChartEntry.init(value: 25, name: "H"),
-                                               BGBarChartEntry.init(value: 83, name: "I")], title: "丙")]
-
+        return BGBarChartFactory(itemIDArray: tempAllItemID, isHiddenEmptyItem: true).chartDataSet
     }
     
     func dataChangeEvent(databaseOrders: Array<Order>) {}
