@@ -30,6 +30,9 @@
 		B63FB3412026155F002A9704 /* BGMonthRevenueBarChartFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FB3402026155F002A9704 /* BGMonthRevenueBarChartFactory.swift */; };
 		B63FB343202618B3002A9704 /* YearsOfRevenueChartConvertData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FB342202618B3002A9704 /* YearsOfRevenueChartConvertData.swift */; };
 		B63FB34520261CE7002A9704 /* BGYearRevenueBarChartFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FB34420261CE7002A9704 /* BGYearRevenueBarChartFactory.swift */; };
+		B63FB3472026290F002A9704 /* TableCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FB3462026290F002A9704 /* TableCellData.swift */; };
+		B63FB3492026299E002A9704 /* SettingTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FB3482026299E002A9704 /* SettingTableData.swift */; };
+		B63FB34B202629C2002A9704 /* TableSectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63FB34A202629C2002A9704 /* TableSectionData.swift */; };
 		B6526174200B72660062336D /* DataAnalysisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6526173200B72660062336D /* DataAnalysisTableViewController.swift */; };
 		B6526176200B87EB0062336D /* AllItemSaleCountChartConvertData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6526175200B87EB0062336D /* AllItemSaleCountChartConvertData.swift */; };
 		B658E3271F595DA2008CECD2 /* OrderMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B658E3251F595DA2008CECD2 /* OrderMenuTableViewCell.swift */; };
@@ -83,6 +86,9 @@
 		B63FB3402026155F002A9704 /* BGMonthRevenueBarChartFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGMonthRevenueBarChartFactory.swift; sourceTree = "<group>"; };
 		B63FB342202618B3002A9704 /* YearsOfRevenueChartConvertData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearsOfRevenueChartConvertData.swift; sourceTree = "<group>"; };
 		B63FB34420261CE7002A9704 /* BGYearRevenueBarChartFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGYearRevenueBarChartFactory.swift; sourceTree = "<group>"; };
+		B63FB3462026290F002A9704 /* TableCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellData.swift; sourceTree = "<group>"; };
+		B63FB3482026299E002A9704 /* SettingTableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableData.swift; sourceTree = "<group>"; };
+		B63FB34A202629C2002A9704 /* TableSectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSectionData.swift; sourceTree = "<group>"; };
 		B6526173200B72660062336D /* DataAnalysisTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAnalysisTableViewController.swift; sourceTree = "<group>"; };
 		B6526175200B87EB0062336D /* AllItemSaleCountChartConvertData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllItemSaleCountChartConvertData.swift; sourceTree = "<group>"; };
 		B658E3251F595DA2008CECD2 /* OrderMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -197,6 +203,8 @@
 				B66D5BA71EF5D7980086707A /* Table.swift */,
 				B66D5BA91EF5D9110086707A /* Floor.swift */,
 				B66D5BAD1EF5DF100086707A /* TablesData.swift */,
+				B63FB34A202629C2002A9704 /* TableSectionData.swift */,
+				B63FB3462026290F002A9704 /* TableCellData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,8 +245,8 @@
 		B607F5ED1F56A53F00337F79 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				B63FB3482026299E002A9704 /* SettingTableData.swift */,
 				B66D5B901EF59F2A0086707A /* SettingController.swift */,
-				B6526172200B72230062336D /* Clear Database */,
 				B6526171200B72070062336D /* Data Analysis */,
 				B6EACB572000F5E7007A298C /* BarChartViewController.xib */,
 			);
@@ -275,13 +283,6 @@
 				B6526175200B87EB0062336D /* AllItemSaleCountChartConvertData.swift */,
 			);
 			path = "Data Analysis";
-			sourceTree = "<group>";
-		};
-		B6526172200B72230062336D /* Clear Database */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Clear Database";
 			sourceTree = "<group>";
 		};
 		B66D5B8B1EF59F2A0086707A /* MainTabController */ = {
@@ -470,6 +471,7 @@
 				B62C4EC9200908C400109ED6 /* BGBarChartDataSet.swift in Sources */,
 				B6EB17FE1FC7FAF10055E167 /* MealList.swift in Sources */,
 				B66D5B921EF59F2A0086707A /* OrderMenuViewController.swift in Sources */,
+				B63FB34B202629C2002A9704 /* TableSectionData.swift in Sources */,
 				B6526174200B72660062336D /* DataAnalysisTableViewController.swift in Sources */,
 				B6E0DC391F59301B00944F96 /* OrderHistoryController.swift in Sources */,
 				B63FB34520261CE7002A9704 /* BGYearRevenueBarChartFactory.swift in Sources */,
@@ -489,8 +491,10 @@
 				B66D5B9D1EF5B3930086707A /* OrderTableNumberCollectionViewCell.swift in Sources */,
 				B63FB3412026155F002A9704 /* BGMonthRevenueBarChartFactory.swift in Sources */,
 				B6DD2CA21F56A8BE00EFA322 /* MealStatus.swift in Sources */,
+				B63FB3492026299E002A9704 /* SettingTableData.swift in Sources */,
 				B66D5B951EF59F2A0086707A /* SettingController.swift in Sources */,
 				B6074D871EE389810082DD8A /* BoardGameForest.xcdatamodeld in Sources */,
+				B63FB3472026290F002A9704 /* TableCellData.swift in Sources */,
 				B6380A2F1FFE50AE00844FA5 /* CheckTableViewCell.swift in Sources */,
 				B667F87F2002515E00CCD5AD /* BGBarChartEntry.swift in Sources */,
 				B63FB343202618B3002A9704 /* YearsOfRevenueChartConvertData.swift in Sources */,
