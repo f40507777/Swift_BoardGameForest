@@ -8,28 +8,25 @@
 
 import UIKit
 
-class BGBarChartFactory: NSObject {
+class BGItemSaleBarChartFactory: NSObject {
     
     var chartDataSet: [BGBarChartDataSet] = []
-    
-    var isHiddenEmptyItem: Bool = true
     
     lazy var meals = MenuParser().mealArray
 
     init(itemIDArray: [String], isHiddenEmptyItem: Bool) {
         super.init()
         
-        self.isHiddenEmptyItem = isHiddenEmptyItem
-        self.chartDataSet = getChartDataSet(itemIDArray: itemIDArray)
+        self.chartDataSet = getChartDataSet(itemIDArray: itemIDArray, isHiddenEmpty: isHiddenEmptyItem)
     }
     
-    func getChartDataSet(itemIDArray: [String]) -> [BGBarChartDataSet] {
+    func getChartDataSet(itemIDArray: [String], isHiddenEmpty: Bool) -> [BGBarChartDataSet] {
         var dataSetArray: [BGBarChartDataSet] = []
         for mealType in meals {
             var entryArray: [BGBarChartEntry] = []
             for meal in mealType {
                 let itemCount = itemIDArray.filter{$0 == meal.itemID}.count
-                if (itemCount > 0 || !isHiddenEmptyItem) {
+                if (itemCount > 0 || !isHiddenEmpty) {
                     entryArray.append(BGBarChartEntry.init(value: Double(itemCount), name: meal.aka!))
                 }
             }

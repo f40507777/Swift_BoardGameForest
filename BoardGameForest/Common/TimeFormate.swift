@@ -32,6 +32,19 @@ class TimeFormate: NSObject {
         return startOfDay.timeIntervalSince1970
     }
     
+    func getNearlyYearsTimeStamp(year: Int) -> TimeInterval {
+        let calculateDate = Calendar.current.date(byAdding: Calendar.Component.year, value: -year, to: currentTime)
+        
+        return (calculateDate?.timeIntervalSince1970)!
+    }
+    
+    func getYearTimeStamp() -> TimeInterval {
+        let comp: DateComponents = Calendar.current.dateComponents([.year], from: Date())
+        let startOfDay = Calendar.current.date(from: comp)!
+        
+        return startOfDay.timeIntervalSince1970
+    }
+    
     func getTodayWorkTimeStamp() -> TimeInterval {
         //營業時間. 假設現在是下午三點,則回傳今日中午十二點, 假設現在時間為凌晨十二點到中午十二點,則回傳昨天中午十二點
         let hour = Calendar.current.component(.hour, from: Calendar.current.date(from: TimeFormate.comp)!)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AllItemSaleChartConvertData: NSObject, DatabaseAPIDelegate {
+class AllItemSaleCountChartConvertData: NSObject, DatabaseAPIDelegate {
     
     lazy var databaseAPI = DatabaseAPI()
     
@@ -39,7 +39,7 @@ class AllItemSaleChartConvertData: NSObject, DatabaseAPIDelegate {
             }
         }
         
-        return BGBarChartFactory(itemIDArray: tempAllItemID, isHiddenEmptyItem: false).chartDataSet
+        return BGItemSaleBarChartFactory(itemIDArray: tempAllItemID, isHiddenEmptyItem: false).chartDataSet
     }
     
     func dataChangeEvent(databaseOrders: Array<Order>) {}

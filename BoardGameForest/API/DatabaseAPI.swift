@@ -63,6 +63,22 @@ class DatabaseAPI: NSObject {
         }
     }
     
+    func getYearOrderList(callback: @escaping (Array<Order>?, Error?) -> Void) {
+        databaseOrderPath.queryOrdered(byChild: DTCREATETIME).queryStarting(atValue: TimeFormate().getYearTimeStamp()).observeSingleEvent(of: .value, with: { (snapshot) in
+            callback(self.getOrderListBySnapshot(snapshot: snapshot), nil)
+        }) { (error) in
+            callback(nil, error)
+        }
+    }
+    
+    func getYearsOrderList(callback: @escaping (Array<Order>?, Error?) -> Void) {
+        databaseOrderPath.queryOrdered(byChild: DTCREATETIME).queryStarting(atValue: TimeFormate().getYearTimeStamp()).observeSingleEvent(of: .value, with: { (snapshot) in
+            callback(self.getOrderListBySnapshot(snapshot: snapshot), nil)
+        }) { (error) in
+            callback(nil, error)
+        }
+    }
+    
     func getOrderListByTimeRange(startTimeStamp: TimeInterval, endTimeStamp: TimeInterval, callback: @escaping (Array<Order>?, Error?) -> Void) {
         databaseOrderPath.queryOrdered(byChild: DTCREATETIME).queryStarting(atValue: startTimeStamp).queryEnding(atValue: endTimeStamp).observe(DataEventType.value) { (snapshot) in
             

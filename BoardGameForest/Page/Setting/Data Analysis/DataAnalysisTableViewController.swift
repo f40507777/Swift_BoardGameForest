@@ -17,7 +17,7 @@ class DataAnalysisTableViewController: UITableViewController {
         
         navigationItem.title = "Data Analysis"
         titleArray = ["年度營收",
-                      "單月營收",
+                      "歷年年度營收",
                       "當天單品銷售",
                       "單月單品銷售",
                       "單年單品銷售"]
@@ -44,51 +44,31 @@ class DataAnalysisTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row == 0 {
-            let testDataArray = [BGBarChartDataSet(entryArray:[BGBarChartEntry.init(value: 30, name: "A"),
-                                                               BGBarChartEntry.init(value: 2, name: "B"),
-                                                               BGBarChartEntry.init(value: 44, name: "C"),
-                                                               BGBarChartEntry.init(value: 125, name: "D")], title: "甲"),
-                                 
-                                 BGBarChartDataSet(entryArray:[BGBarChartEntry.init(value: 99, name: "E"),
-                                                               BGBarChartEntry.init(value: 333, name: "F")], title: "乙"),
-                                 
-                                 BGBarChartDataSet(entryArray:[BGBarChartEntry.init(value: 1, name: "G"),
-                                                               BGBarChartEntry.init(value: 25, name: "H"),
-                                                               BGBarChartEntry.init(value: 83, name: "I")], title: "丙")]
-            let convert = BGBarChartConvert(bgSetArray: testDataArray,valueUnit: ValueUnit.DollarUnit)
-            let chartViewController = BarChartViewController(bgConvertData: convert)
-            navigationController?.pushViewController(chartViewController, animated: true)
+            MonthsOfRevenueChartConvertData().asyncQuary(callback: { (convertData, error) in
+                let chartViewController = BarChartViewController(bgConvertData: convertData!)
+                self.navigationController?.pushViewController(chartViewController, animated: true)
+            })
             
         } else if indexPath.row == 1 {
+            YearsOfRevenueChartConvertData().asyncQuary(callback: { (convertData, error) in
+                let chartViewController = BarChartViewController(bgConvertData: convertData!)
+                self.navigationController?.pushViewController(chartViewController, animated: true)
+            })
             
-            let testDataArray = [BGBarChartDataSet(entryArray:[BGBarChartEntry.init(value: 30, name: "A"),
-                                                               BGBarChartEntry.init(value: 2, name: "B"),
-                                                               BGBarChartEntry.init(value: 44, name: "C"),
-                                                               BGBarChartEntry.init(value: 125, name: "D")], title: "甲"),
-                                 
-                                 BGBarChartDataSet(entryArray:[BGBarChartEntry.init(value: 99, name: "E"),
-                                                               BGBarChartEntry.init(value: 333, name: "F")], title: "乙"),
-                                 
-                                 BGBarChartDataSet(entryArray:[BGBarChartEntry.init(value: 1, name: "G"),
-                                                               BGBarChartEntry.init(value: 25, name: "H"),
-                                                               BGBarChartEntry.init(value: 83, name: "I")], title: "丙")]
-            let convert = BGBarChartConvert(bgSetArray: testDataArray,valueUnit: ValueUnit.DollarUnit)
-            let chartViewController = BarChartViewController(bgConvertData: convert)
-            navigationController?.pushViewController(chartViewController, animated: true)
         } else if indexPath.row == 2 {
-            AllItemSaleChartConvertData(nearlyDay: 1).asyncQuary(callback: { (convertData, error) in
+            AllItemSaleCountChartConvertData(nearlyDay: 1).asyncQuary(callback: { (convertData, error) in
                 let chartViewController = BarChartViewController(bgConvertData: convertData!)
                 self.navigationController?.pushViewController(chartViewController, animated: true)
             })
             
         } else if indexPath.row == 3 {
-            AllItemSaleChartConvertData(nearlyDay: 30).asyncQuary(callback: { (convertData, error) in
+            AllItemSaleCountChartConvertData(nearlyDay: 30).asyncQuary(callback: { (convertData, error) in
                 let chartViewController = BarChartViewController(bgConvertData: convertData!)
                 self.navigationController?.pushViewController(chartViewController, animated: true)
             })
             
         } else if indexPath.row == 4 {
-            AllItemSaleChartConvertData(nearlyDay: 365).asyncQuary(callback: { (convertData, error) in
+            AllItemSaleCountChartConvertData(nearlyDay: 365).asyncQuary(callback: { (convertData, error) in
                 let chartViewController = BarChartViewController(bgConvertData: convertData!)
                 self.navigationController?.pushViewController(chartViewController, animated: true)
             })
