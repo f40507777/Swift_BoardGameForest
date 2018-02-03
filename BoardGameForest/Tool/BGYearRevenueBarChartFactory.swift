@@ -22,8 +22,8 @@ class BGYearRevenueBarChartFactory: NSObject {
     func getChartDataSet(revenueArray: [Int], offsetYear: Int) -> [BGBarChartDataSet] {
         var dataSetArray: [BGBarChartDataSet] = []
         for (index, incoming) in revenueArray.enumerated() {
-            let entry = BGBarChartEntry.init(value: Double(incoming), name: String(offsetYear + index)+"年")
-            dataSetArray.append(BGBarChartDataSet(entryArray: [entry], title: ""))
+            let chartEntry = BGBarChartEntry.init(value: Double(incoming), name: String(offsetYear + index)+"年")
+            dataSetArray.append(BGBarChartDataSet(entryArray: [chartEntry], title: ""))
         }
         
         return dataSetArray
