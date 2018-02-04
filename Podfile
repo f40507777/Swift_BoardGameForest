@@ -11,5 +11,6 @@ target 'BoardGameForest' do
   pod 'FirebaseUI/Database'
   pod 'ObjectMapper', '~> 3.1'
   pod 'Charts', '~> 3.0.5'
+  pod 'NVActivityIndicatorView', '~> 4.1'
 
 end
