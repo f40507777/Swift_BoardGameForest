@@ -48,15 +48,18 @@ class RandomDBData: NSObject {
     }
     
     func getRandomMealStatus() -> MealStatus {
-        let section = Int(arc4random_uniform(UInt32(meals.count)))
-        let row = Int(arc4random_uniform(UInt32(meals[section].count)))
+        var mergeArray: [MealStatus] = []
+        for mealArray in meals {
+            mergeArray += mealArray
+        }
+        let randomIndex = Int(arc4random_uniform(UInt32(mergeArray.count)))
         
-        return meals[section][row]
+        return mergeArray[randomIndex]
     }
     
     func getRandomCreateTimeStamp() -> Double {
-        let currentTimeStamp = TimeFormate().getCurrentTimeStamp()
-        let firstTimeStamp = TimeFormate().getNearlyYearsTimeStamp(year: nearlyYear)
+        let currentTimeStamp = TimeFormate().getNearlyYearsTimeStamp(year: -1)
+        let firstTimeStamp = TimeFormate().getNearlyYearsTimeStamp(year: 0)
         let timeStampOffset = currentTimeStamp - firstTimeStamp
 
         return drand48() * timeStampOffset + firstTimeStamp

@@ -23,7 +23,7 @@ class MonthsOfRevenueChartConvertData: NSObject, DatabaseAPIDelegate {
 
         for orderList in originalOrderList {
             let month = getMonthByTimeStamp(timeStamp: orderList.createTime)
-            revenueOfMonth[month] += orderList.totalAmount
+            revenueOfMonth[month - 1] += orderList.totalAmount
         }
         
         return BGMonthRevenueBarChartFactory(monthsRevenueArray: revenueOfMonth).chartDataSet

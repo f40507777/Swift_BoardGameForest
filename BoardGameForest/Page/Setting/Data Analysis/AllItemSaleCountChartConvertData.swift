@@ -26,7 +26,7 @@ class AllItemSaleCountChartConvertData: NSObject, DatabaseAPIDelegate {
         databaseAPI.delegate = self
         databaseAPI.getOrderListByTimeRange(startTimeStamp: startTime,
                                             endTimeStamp: TimeFormate().getCurrentTimeStamp()) { (orderList, error) in
-                                                callback(BGBarChartConvert(bgSetArray: self.processOrderList(originalOrderList: orderList!), valueUnit: .DollarUnit), nil)
+                                                callback(BGBarChartConvert(bgSetArray: self.processOrderList(originalOrderList: orderList!), valueUnit: .NoneUnit), nil)
 
         }
     }
