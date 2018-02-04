@@ -1,7 +1,7 @@
 PODS:
-  - Charts (3.0.4):
-    - Charts/Core (= 3.0.4)
-  - Charts/Core (3.0.4)
+  - Charts (3.0.5):
+    - Charts/Core (= 3.0.5)
+  - Charts/Core (3.0.5)
   - Firebase/Auth (4.0.0):
     - Firebase/Core
     - FirebaseAuth (= 4.0.0)
@@ -38,18 +38,18 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.10)
-  - ObjectMapper (2.2.8)
+  - ObjectMapper (3.1.0)
 
 DEPENDENCIES:
-  - Charts (~> 3.0)
+  - Charts (~> 3.0.5)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - FirebaseUI/Database
-  - ObjectMapper (~> 2.2)
+  - ObjectMapper (~> 3.1)
 
 SPEC CHECKSUMS:
-  Charts: 0705898046257443f0afbbc3179f4b67507b6e48
+  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
   Firebase: 284eea779b73fdff309791817da7c68bff8dd572
   FirebaseAnalytics: 6f08e746f7d66f5452931bc2e822b5df9c66b64a
   FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
@@ -59,8 +59,8 @@ SPEC CHECKSUMS:
   FirebaseUI: b9de05bfb4768db05f64ea90fc2f6a07b819118f
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
-  ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
 
-PODFILE CHECKSUM: b1e9c9c153cdb5bc3c7631ed3a8f640c8509f032
+PODFILE CHECKSUM: ecee7e62fe819d9c83752f470db204b52224f336
 
 COCOAPODS: 1.3.1

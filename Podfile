@@ -9,7 +9,7 @@ target 'BoardGameForest' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'FirebaseUI/Database'
-  pod 'ObjectMapper', '~> 2.2'
-  pod 'Charts', '~> 3.0'
+  pod 'ObjectMapper', '~> 3.1'
+  pod 'Charts', '~> 3.0.5'
 
 end

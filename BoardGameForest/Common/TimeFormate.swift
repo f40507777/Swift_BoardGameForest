@@ -12,7 +12,7 @@ class TimeFormate: NSObject {
 
     static let comp: DateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: Date())
     lazy var currentTime: Date = {
-        return Calendar.current.date(from: comp)
+        return Calendar.current.date(from: TimeFormate.comp)
         }()!
 
     func getCurrentTimeStamp() -> TimeInterval {
