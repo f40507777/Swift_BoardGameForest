@@ -20,6 +20,7 @@ class SettingController: UITableViewController {
         super.viewDidLoad()
         
         tableData = SettingTableData(viewController: self)
+        tableView.tableFooterView = UIView()
         navigationItem.title = "Setting"
     }
     
@@ -43,7 +44,7 @@ class SettingController: UITableViewController {
         return cell
     }
     
-    func tableView( tableView : UITableView,  titleForHeaderInSection section: Int) -> String {
+    override func tableView( _ tableView : UITableView,  titleForHeaderInSection section: Int) -> String {
         return tableData.sectionDataArray[section].title
     }
     

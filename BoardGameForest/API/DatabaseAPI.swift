@@ -40,6 +40,13 @@ class DatabaseAPI: NSObject {
     
     // MARK: - Update
 
+    func updateOrderListDictionary(orderListDictionary: [String : Order]) {
+        let formatOrderList = Dictionary(uniqueKeysWithValues:
+            orderListDictionary.map { key, value in (key, value.toJSON()) })
+        
+        databaseOrderPath.updateChildValues(formatOrderList)
+    }
+    
     func updateOrder(order: Order) {
         databaseOrderPath.child(order.orderID).setValue(order.toJSON())
     }

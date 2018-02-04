@@ -53,7 +53,7 @@ class SettingTableData: NSObject {
     
     func createRandanDBData() -> TableCellData {
         return TableCellData(title: "隨機產生資料", clickAciotn: {
-            
+            RandomDBData(orderCount: 5)
         })
     }
     
